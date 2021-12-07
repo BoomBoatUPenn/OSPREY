@@ -1,6 +1,6 @@
 # OSPREY - Oil SPill REcoverY (OSPREY)
 
-![front-page](https://user-images.githubusercontent.com/55633473/145086720-254725aa-71fb-4222-ad1a-e567e157e9bb.PNG)
+![front-page](https://user-images.githubusercontent.com/55633473/145109631-769bbd14-2262-402c-a97f-9ad9b6e88c7c.PNG)
 
 We are ESE Interdepartmental Senior Design (ISD) Team BoomBoat, comprised of University of Pennsylvania Engineering Seniors:
 
@@ -14,15 +14,15 @@ We are a group of talented, hungry, and driven individuals looking to change the
 
 Current oil spill remediation techniques are costly, inefficient, and antiquated. Oil spill booms are the most popular method but lack the autonomy to be proactive, scalable, and time/cost efficient. As a result, oil/gas firms, remediation suppliers, and governmental agencies must discover new ways to revolutionize age-old containment solutions.  BoomBoat is a multi-robot, autonomous system inspired by the current state of the art in oil spill boom containment methods.  Shown below is a simplified explanation of how BoomBoat works:
 
-![outline](https://user-images.githubusercontent.com/55633473/145088809-ba49e33f-6f59-43f9-a562-a5d6cff938c2.PNG)
+![outline](https://user-images.githubusercontent.com/55633473/145109648-7efd5887-7bde-4ad6-a2d1-ba95b9de45ef.PNG)
 
 Using two wifi-controlled boats and a overhead camera, BoomBoat can encompass arbitrarily shaped oil spills.  Thanks to careful selection and proper hardware sizing, we have settled on a hardware design that meets our scale limitations.  This is shown below.
 
-![hardware](https://user-images.githubusercontent.com/55633473/145089282-71507dac-b35e-411d-9b8a-48a59c0b5d97.PNG)
+![hardware](https://user-images.githubusercontent.com/55633473/145109671-1c07fead-0bec-4bcd-a34c-fdec3a2b9893.PNG)
 
 Given that Boomboat is an autonomous system, performance is tied to how well our robot can understand its surroundings and navigate unfamiliar and dynamic environments.  At the heart of our autonomy platform are the perception and motion-planning modules.  We've made significant progress in experimenting with different methods for each of these subsystems.  See below for a high-level understanding of BoomBoat's proposed flow of information.
 
-![system](https://user-images.githubusercontent.com/55633473/145094950-e68c5cf3-6d3f-4d99-98ee-2d17555347ae.PNG)
+![system](https://user-images.githubusercontent.com/55633473/145109686-ddbfcebf-3726-46a2-a31d-51040d6e1965.PNG)
 
 # Progress to Date:
 
@@ -60,7 +60,7 @@ See our Results section for visual aid.
  - # Full System Integration:
     - Integrate XBox Controller wifi based individual boat guidance
     - Tune PID controller to account for ocean currents
-    - Use simulated input for planning and guiding boats around a potential oil spill (vision used for validation)
+    - Use simulated input to guide boats around a potential oil spill (vision used for validation)
     - Test Vision system on fake oil-spill identification (likely to be a tarp or confetti)
     - Use perception module outputs for safe navigation around fake oil-spill
  
