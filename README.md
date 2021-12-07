@@ -25,6 +25,9 @@ Given that Boomboat is an autonomous system, performance is tied to how well our
 ![system](https://user-images.githubusercontent.com/55633473/145094950-e68c5cf3-6d3f-4d99-98ee-2d17555347ae.PNG)
 
 # Progress to Date:
+
+See our Results section for visual aid.
+
  - # Perception:
     - Use MATLAB Color Thresholding for oil spill detection and data understanding (MATLAB)
     - Stream GoPro frames over TCP (GoPro Python API)
