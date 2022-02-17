@@ -10,8 +10,8 @@ import PyQt5
 import sys, time
 import re
 
-UDP_IP = "192.168.1.6"
-UDP_IP_BROADCAST = "192.168.1.255"
+UDP_IP = "172.16.12.10"
+UDP_IP_BROADCAST = "172.16.12.255"
 UDP_PORT_CMD = 5005
 UDP_PORT_TELEM = 5006
 radius= 32768
@@ -26,7 +26,8 @@ TelemSocket.setblocking(0)
 x = 0
 y = 0
 
-speed = .01
+throttle = .07
+rudder = 0.09
 
 def joystick():
     BTN_TR_state = False
@@ -84,8 +85,12 @@ def server():
         ms = time.time()*1000.0
         ## post at 20hz
         if (ms> LastTime[0] + 1000/freq[0]):
-            LastTime[0]=ms
-            CommandSocket.sendto(bytes('s'+str(round(speed,2)), 'utf-8'), (UDP_IP, UDP_PORT_CMD))
+            LastTime[0] = ms
+            CommandSocket.sendto(bytes('h', 'utf-8'), (UDP_IP, UDP_PORT_CMD))
+        if (ms> LastTime[1] + 1000/freq[1]):
+            LastTime[1] = ms
+            CommandSocket.sendto(bytes('t'+str(round(throttle, 2)), 'utf-8'), (UDP_IP, UDP_PORT_CMD))
+            CommandSocket.sendto(bytes('r'+str(round(rudder, 2)), 'utf-8'), (UDP_IP, UDP_PORT_CMD))
 
 def main():
     server()
