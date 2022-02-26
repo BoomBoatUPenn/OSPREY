@@ -10,15 +10,17 @@ We are ESE Interdepartmental Senior Design (ISD) Team BoomBoat, comprised of Uni
   - Andrew Garrett - Motion Planning and Perception
   - Adam Liang - Hardware and Business
 
-We are a group of talented, hungry, and driven individuals looking to change the world with robotics.  Our project BoomBoat sits at the intersection of engineering and sustainability practice.  Still hot in the process of development, we envision BoomBoat as a solution to the time and monetary inefficiencies of oil spill containment.
+We are a group of talented, hungry, and driven individuals looking to change the world with robotics.  Our project BoomBoat sits at the intersection of engineering and sustainability practice.  Still hot in the process of development, we envision BoomBoat as a solution to the time and monetary inefficiencies of oil spill response.
 
 Current oil spill remediation techniques are costly, inefficient, and antiquated. Oil spill booms are the most popular method but lack the autonomy to be proactive, scalable, and time/cost efficient. As a result, oil/gas firms, remediation suppliers, and governmental agencies must discover new ways to revolutionize age-old containment solutions.  BoomBoat is a multi-robot, autonomous system inspired by the current state of the art in oil spill boom containment methods.  Shown below is a simplified explanation of how BoomBoat works:
 
 ![outline](https://user-images.githubusercontent.com/55633473/145109648-7efd5887-7bde-4ad6-a2d1-ba95b9de45ef.PNG)
 
-Using two wifi-controlled boats and a overhead camera, BoomBoat can encompass arbitrarily shaped oil spills.  Thanks to careful selection and proper hardware sizing, we have settled on a hardware design that meets our scale limitations.  This is shown below.
+Using two wifi-controlled boats and a overhead camera, BoomBoat can encompass arbitrarily shaped oil spills.  Thanks to careful selection and proper hardware sizing, we have settled on a hardware design that meets our scale limitations.  Shown first is a high-level overview of our system design, while below that is our electronics schematic.
 
 ![hardware](https://user-images.githubusercontent.com/55633473/145109671-1c07fead-0bec-4bcd-a34c-fdec3a2b9893.PNG)
+
+![electronics](https://user-images.githubusercontent.com/55633473/155827574-1904173a-d3e3-45d2-8f8b-d5a6aba522fc.png)
 
 Given that Boomboat is an autonomous system, performance is tied to how well our robot can understand its surroundings and navigate unfamiliar and dynamic environments.  At the heart of our autonomy platform are the perception and motion-planning modules.  We've made significant progress in experimenting with different methods for each of these subsystems.  See below for a high-level understanding of BoomBoat's proposed flow of information.
 
