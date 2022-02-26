@@ -44,6 +44,9 @@ See our Results section for visual aid.
  - # Hardware:
       - Determine approximate power requirements and select optimal hobby boat hardware for considerations of scale, budget, and quality
       - Order parts
+      - Build first boat prototype
+      - Bench test electronic and mechanical components (motor, ESC, wifi controller, servos, etc.)
+      - Waterproof boat interior (epoxy)
 
 # Up Next:
  - # Perception:
@@ -55,10 +58,9 @@ See our Results section for visual aid.
     - Explore topological constraints of environment for advanced A*
     - Implement two-boat path-planning
  - # Hardware:
-    - Bench test electronic and mechanical components (motor, ESC, wifi controller, servos, etc.)
-    - Waterproof interior (epoxy)
     - Test System-level functionality on dry-land
     - Implement PID controller for motion-planning motor commands
+    - Build second boat
  - # Full System Integration:
     - Integrate XBox Controller wifi based individual boat guidance
     - Tune PID controller to account for ocean currents
