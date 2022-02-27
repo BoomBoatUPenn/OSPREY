@@ -26,20 +26,17 @@ TelemSocket.setblocking(0)
 x = 0
 y = 0
 
-throttle = .07
-rudder = 0.09
+throttle = .00
+rudder = 0.2
+RudderNeutral = .37
+RudderArc = .4
+
 
 def joystick():
-    BTN_TR_state = False
-    BTN_SOUTH_STATE = False
-    BTN_WEST_STATE = False
-    BTN_WEST_EAST = False
     global x
     global y
-    global Grip
-    global WallFollow
-    global MoveTo
-    global BeaconTrack
+    global throttle
+    global rudder
     while 1:
         events = get_gamepad()
         for event in events:
@@ -48,22 +45,6 @@ def joystick():
                     x = event.state
                 elif (event.code == 'ABS_Y'):
                     y = event.state
-                elif (event.code == 'BTN_TR'):
-                    BTN_TR_state= not BTN_TR_state
-                    if BTN_TR_state:
-                        Grip = not Grip
-                elif (event.code == 'BTN_SOUTH'):
-                    BTN_SOUTH_STATE= not BTN_SOUTH_STATE
-                    if BTN_SOUTH_STATE:
-                        WallFollow = not WallFollow
-                elif (event.code == 'BTN_WEST'):
-                    BTN_WEST_STATE= not BTN_WEST_STATE
-                    if BTN_WEST_STATE:
-                        MoveTo = not MoveTo
-                elif (event.code == 'BTN_EAST'):
-                    BTN_WEST_EAST= not BTN_WEST_EAST
-                    if BTN_WEST_EAST:
-                        BeaconTrack = not BeaconTrack
 
                 # circularize controller
                 r = math.sqrt(x**2 + y**2)
@@ -71,11 +52,17 @@ def joystick():
                 if (r> radius):
                     y = math.floor(y * radius/r)
                     x = math.floor(x * radius/r)
+                if y>0:
+                    throttle = (y/radius)*.3
+                else:
+                    throttle = 0
+                rudder = (x/radius)*RudderArc + RudderNeutral
 
 def server():
     LastTime = [0,0,0]
-    freq = [20, 5, 3]
+    freq = [20, 5, 30]
     SentConfig = False
+    global rudder
         
     while 1:
         if not SentConfig:
@@ -92,7 +79,12 @@ def server():
             CommandSocket.sendto(bytes('t'+str(round(throttle, 2)), 'utf-8'), (UDP_IP, UDP_PORT_CMD))
             CommandSocket.sendto(bytes('r'+str(round(rudder, 2)), 'utf-8'), (UDP_IP, UDP_PORT_CMD))
 
+
+
+
 def main():
+    t1 = Thread(target = joystick)
+    t1.start()
     server()
   
 if __name__=="__main__":

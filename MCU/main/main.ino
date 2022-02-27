@@ -72,7 +72,6 @@ void recieve_commands(){
 
     if (packetBuffer[0] == 'c'){
       char *token;
-      // discard 'c' character
     }
 
     if (packetBuffer[0] == 't'){
@@ -106,11 +105,7 @@ void update_motors(){
     r = angleToDC(ServoNeutral);
   }
 
-  Serial.print("Throttle");
-  Serial.println(t);
   ledcWrite(ESCChannel, t);
-  Serial.print("rudder angle");
-  Serial.println(r);
   ledcWrite(RudderServoChannel, r);
   
 }
