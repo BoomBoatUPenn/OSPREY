@@ -27,9 +27,11 @@ x = 0
 y = 0
 
 throttle = .00
+
+MAX_THROTTLE = .25
 rudder = 0.2
 RudderNeutral = .37
-RudderArc = .4
+RudderArc = .5
 
 
 def joystick():
@@ -41,7 +43,7 @@ def joystick():
         events = get_gamepad()
         for event in events:
             if (event.ev_type != "Sync"):
-                if (event.code == 'ABS_X'):
+                if (event.code == 'ABS_RX'):
                     x = event.state
                 elif (event.code == 'ABS_Y'):
                     y = event.state
@@ -53,7 +55,7 @@ def joystick():
                     y = math.floor(y * radius/r)
                     x = math.floor(x * radius/r)
                 if y>0:
-                    throttle = (y/radius)*.3
+                    throttle = (y/radius) * MAX_THROTTLE
                 else:
                     throttle = 0
                 rudder = (x/radius)*RudderArc + RudderNeutral
