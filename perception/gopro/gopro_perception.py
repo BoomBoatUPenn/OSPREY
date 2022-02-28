@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from time import time
+from time import time, sleep
 import socket
 from goprocam import GoProCamera
 from goprocam import constants
@@ -12,6 +12,12 @@ import threading
 from utils import *
 from AR_tags import *
 import keep_alive
+
+
+# AXES:
+AXES = {'0': 'x',
+        '1': 'y',
+        '2': 'z'}
 
 def accept_json():
     """
@@ -32,7 +38,8 @@ def displayResults(imgs):
     """
     if len(imgs) > 0:
         for i, (window, img) in enumerate(imgs.items()):
-            cv2.imshow(window, img)
+            if img is not None:
+                cv2.imshow(window, img)
 
 def main(params):
     """
@@ -45,14 +52,13 @@ def main(params):
             imgs[key] = None
     
     for i, (window, value) in enumerate(params.items()):
-        if window == "april":
-            if value == True:
-                april = AR_PlaneDetection()
-        if window == "undistort":
-            if value == True:
-                undistorter = UndistortionModule()
         if value == True:
-            cv2.namedWindow(window)
+            if window == "april":
+                april = AR_PlaneDetection()
+            elif window == "undistort":
+                undistorter = UndistortionModule()
+            if window != "undistort":
+                cv2.namedWindow(window)
 
     cap = cv2.VideoCapture("udp://127.0.0.1:10000")
     counter = 0
@@ -60,23 +66,46 @@ def main(params):
     while cap.isOpened():
         nmat, frame = cap.read()
         if nmat:
-            if counter <= 4: # reduces effective frame rate
+            if counter <= 3: # reduces effective frame rate
                 counter += 1
                 key = cv2.waitKey(1)
             else:
                 if params["undistort"]: # camera lens undistortion
                     undistorted_im = frame
                     undistorted_im = undistorter.undistort(undistorted_im)
-                    imgs["undistort"] = undistorted_im
+                    #imgs["undistort"] = undistorted_im
                 
                 if params["april"]: # april tag detection
                     april_im = frame
                     april_im, origins, ground_plane = april.detect_tags(april_im)
+                    ground_origin_overlay, theta = april.calculateHeading(origins)
                     if params["undistort"]:
-                        april_im = undistorter.undistort(april_im)
-                    if "ground" in origins.keys():
-                        for pt in origins["ground"][0][1:]:
-                            cv2.arrowedLine(april_im, origins["ground"][0][0], pt, (0, 255, 0))
+                        april_im = undistorted_im
+                    if "boat" in origins.keys():
+                        for i, pt in enumerate(origins["boat"][0][1:]): # boat coordinate system
+                            axis = AXES[str(i)]
+                            if axis == 'x':
+                                cv2.arrowedLine(april_im, origins["boat"][0][0], pt, (0, 0, 255))
+                                april_im = cv2.putText(april_im, axis + '_b', pt, fontFace=1, fontScale=1.0, color=(0, 0, 255))
+                            elif axis == 'y':
+                                cv2.arrowedLine(april_im, origins["boat"][0][0], pt, (0, 255, 0))
+                                april_im = cv2.putText(april_im, axis + '_b', pt, fontFace=1, fontScale=1.0, color=(0, 255, 0))
+                            elif axis == 'z':
+                                cv2.arrowedLine(april_im, origins["boat"][0][0], pt, (255, 0, 0))
+                                april_im = cv2.putText(april_im, axis + '_b', pt, fontFace=1, fontScale=1.0, color=(255, 0, 0))
+
+                        if ground_origin_overlay is not None:
+                            for i, pt in enumerate(ground_origin_overlay[1:]): # ground coordinate system overlayed onto boat center
+                                axis = AXES[str(i)]
+                                if axis == 'x':
+                                    cv2.arrowedLine(april_im, ground_origin_overlay[0], pt, (0, 0, 255))
+                                    april_im = cv2.putText(april_im, axis + '_w', pt, fontFace=1, fontScale=1.0, color=(0, 0, 255))
+                                elif axis == 'y':
+                                    cv2.arrowedLine(april_im, ground_origin_overlay[0], pt, (0, 255, 0))
+                                    april_im = cv2.putText(april_im, axis + '_w', pt, fontFace=1, fontScale=1.0, color=(0, 255, 0))
+                                elif axis == 'z':
+                                    cv2.arrowedLine(april_im, ground_origin_overlay[0], pt, (255, 0, 0))
+                                    april_im = cv2.putText(april_im, axis + '_w', pt, fontFace=1, fontScale=1.0, color=(255, 0, 0))
                     if ground_plane is not None:
                         for pt in ground_plane:
                             cv2.circle(april_im, pt, 3, (0, 0, 255), -1)
@@ -124,10 +153,13 @@ def main(params):
 
 if __name__ == "__main__":
     params = accept_json()
-
+    #t0 = threading.Thread(target=keep_alive.connect_wifi, args=())
     t1 = threading.Thread(target=keep_alive.stream, args=())
     t2 = threading.Thread(target=main, args=(params,))
   
+    # starting thread 0
+    t0.start()
+    sleep(30) # wait to establish connection
     # starting thread 1
     t1.start()
     # starting thread 2
@@ -137,6 +169,7 @@ if __name__ == "__main__":
     t2.join()
     # wait until thread 1 is completely executed
     t1.join()
-    
-    # both threads completely executed
+    # wait until thread 0 is completely executed
+    #t0.join()
+
     print("Done!")
