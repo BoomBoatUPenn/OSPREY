@@ -7,6 +7,7 @@ from goprocam import constants
 from math import cos, pi
 import random as rng
 import json
+import csv
 import threading
 
 from utils import *
@@ -26,6 +27,13 @@ def accept_json():
     with open('configs\\test_config.json', 'r') as f:
         PARAMS = json.load(f)
     return PARAMS;
+
+def create_csv():
+    f = open('recordings\\record.csv', 'w')
+    writer = csv.writer(f)
+    header = ['time', 'boat_cx', 'boat_cy', 'world_cx', 'world_cy', 'theta']
+    writer.writerow(header)
+    return f, writer;
 
 def displayResults(imgs):
     """
@@ -59,17 +67,18 @@ def main(params):
                 undistorter = UndistortionModule()
             if window != "undistort":
                 cv2.namedWindow(window)
-
+    f, writer = create_csv()
     cap = cv2.VideoCapture("udp://127.0.0.1:10000")
     counter = 0
     t = time()
     while cap.isOpened():
         nmat, frame = cap.read()
         if nmat:
-            if counter <= 3: # reduces effective frame rate
+            if counter <= 4: # reduces effective frame rate
                 counter += 1
-                key = cv2.waitKey(1)
+                key = cv2.waitKey(3)
             else:
+                write_data = [time() - t]
                 if params["undistort"]: # camera lens undistortion
                     undistorted_im = frame
                     undistorted_im = undistorter.undistort(undistorted_im)
@@ -84,27 +93,33 @@ def main(params):
                     if "boat" in origins.keys():
                         for i, pt in enumerate(origins["boat"][0][1:]): # boat coordinate system
                             axis = AXES[str(i)]
+                            boat_c = origins["boat"][0][0]
                             if axis == 'x':
-                                cv2.arrowedLine(april_im, origins["boat"][0][0], pt, (0, 0, 255))
+                                cv2.arrowedLine(april_im, boat_c, pt, (0, 0, 255))
                                 april_im = cv2.putText(april_im, axis + '_b', pt, fontFace=1, fontScale=1.0, color=(0, 0, 255))
                             elif axis == 'y':
-                                cv2.arrowedLine(april_im, origins["boat"][0][0], pt, (0, 255, 0))
+                                cv2.arrowedLine(april_im, boat_c, pt, (0, 255, 0))
                                 april_im = cv2.putText(april_im, axis + '_b', pt, fontFace=1, fontScale=1.0, color=(0, 255, 0))
                             elif axis == 'z':
-                                cv2.arrowedLine(april_im, origins["boat"][0][0], pt, (255, 0, 0))
+                                cv2.arrowedLine(april_im, boat_c, pt, (255, 0, 0))
                                 april_im = cv2.putText(april_im, axis + '_b', pt, fontFace=1, fontScale=1.0, color=(255, 0, 0))
-
+                        write_data.append(float(boat_c[0])) # boat cx
+                        write_data.append(float(boat_c[1])) # boat cy
+                        write_data.append(float(origins["ground"][0][0][0])) # world cx
+                        write_data.append(float(origins["ground"][0][0][1])) # world cy
+                        write_data.append(theta)
                         if ground_origin_overlay is not None:
                             for i, pt in enumerate(ground_origin_overlay[1:]): # ground coordinate system overlayed onto boat center
                                 axis = AXES[str(i)]
+                                ground_c = ground_origin_overlay[0]
                                 if axis == 'x':
-                                    cv2.arrowedLine(april_im, ground_origin_overlay[0], pt, (0, 0, 255))
+                                    cv2.arrowedLine(april_im, ground_c, pt, (0, 0, 255))
                                     april_im = cv2.putText(april_im, axis + '_w', pt, fontFace=1, fontScale=1.0, color=(0, 0, 255))
                                 elif axis == 'y':
-                                    cv2.arrowedLine(april_im, ground_origin_overlay[0], pt, (0, 255, 0))
+                                    cv2.arrowedLine(april_im, ground_c, pt, (0, 255, 0))
                                     april_im = cv2.putText(april_im, axis + '_w', pt, fontFace=1, fontScale=1.0, color=(0, 255, 0))
                                 elif axis == 'z':
-                                    cv2.arrowedLine(april_im, ground_origin_overlay[0], pt, (255, 0, 0))
+                                    cv2.arrowedLine(april_im, ground_c, pt, (255, 0, 0))
                                     april_im = cv2.putText(april_im, axis + '_w', pt, fontFace=1, fontScale=1.0, color=(255, 0, 0))
                     if ground_plane is not None:
                         for pt in ground_plane:
@@ -144,6 +159,10 @@ def main(params):
                     imgs["boat_color_threshed"] = boat_im
 
                 displayResults(imgs)
+                if write_data[0] < 60:
+                    writer.writerow(write_data)
+                else:
+                    f.close()
                 counter = 0
                 key = cv2.waitKey(1)
             if key == ord('q'):
@@ -153,13 +172,13 @@ def main(params):
 
 if __name__ == "__main__":
     params = accept_json()
-    #t0 = threading.Thread(target=keep_alive.connect_wifi, args=())
+    # t0 = threading.Thread(target=keep_alive.connect_wifi, args=())
     t1 = threading.Thread(target=keep_alive.stream, args=())
     t2 = threading.Thread(target=main, args=(params,))
   
     # starting thread 0
-    t0.start()
-    sleep(30) # wait to establish connection
+    # t0.start()conda
+    # sleep(30) # wait to establish connection
     # starting thread 1
     t1.start()
     # starting thread 2
@@ -170,6 +189,6 @@ if __name__ == "__main__":
     # wait until thread 1 is completely executed
     t1.join()
     # wait until thread 0 is completely executed
-    #t0.join()
+    # t0.join()
 
     print("Done!")
