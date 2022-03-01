@@ -3,12 +3,20 @@ import socket
 import math
 from threading import Thread
 
+from controller import boat_pid
+
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QPainter, QColor, QFont, QPen
 from PyQt5.QtCore import Qt
 import PyQt5
 import sys, time
 import re
+
+
+# globals to be updated in pid thread
+speed_pid_output = 0
+alpha_pid_output = 0
+
 
 UDP_IP = "192.168.1.6"
 UDP_IP_BROADCAST = "192.168.1.255"
@@ -87,7 +95,22 @@ def server():
             LastTime[0]=ms
             CommandSocket.sendto(bytes('s'+str(round(speed,2)), 'utf-8'), (UDP_IP, UDP_PORT_CMD))
 
+
+def get_boat_state():
+    return 0, 0
+
+
+def run_controller(recalculate_interval_ms=100):
+    b = boat_pid()
+    while True:
+        distance, theta = get_boat_state()  # from perception
+        speed_pid_output, alpha_pid_output = b.command_boat((distance, theta))
+        time.sleep(recalculate_interval_ms * 0.001)
+
+
 def main():
+    t1 = Thread(target=run_controller, args=(100,))
+    t1.start()
     server()
   
 if __name__=="__main__":
