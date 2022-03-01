@@ -10,12 +10,12 @@ class boat_pid():
         - Design controller to take in current heading angle, compute speed 
     """
     def __init__(self):
-        self.__P = 1.0
+        self.__P = 35.0  # full rudder necessary at roughly 2 meters, full rudder itself is about 70 degrees, assuming servo is centered at 0
         self.__I = 0.0
         self.__D = 0.0
         self.__setpoint = 2.0 # straight-line distance from origin along y-axis (meters)
         self.controller = PID(self.__P, self.__I, self.__D, self.__setpoint)
-        self.__L = 1.0 # lookahead distance (meters)
+        self.__L = 1.0 # lookahead distance (meters) -- L = 1 seems reasonable based on numerical example
         self.__high_speed = 1.0 # speed mapping
         self.__mid_speed = 2.0 / 3.0
         self.__low_speed = 1.0 / 3.0
@@ -55,13 +55,16 @@ class boat_pid():
         lookahead = self.__L * np.sin(theta)
         return lookahead
 
+    def distance_predicted(self, distance, theta):
+        return distance + self.look_ahead(theta)
+
     def command_boat(self, state):
         """
         Use PID Controller to generate the steering angle of the boat
         Error function measures predicted signed distance of the boat from its setpoint
         """
         distance, theta = state
-        distance_predicted = distance + self.look_ahead(theta)
+        distance_predicted = self.distance_predicted(distance, theta)
         alpha = self.controller(distance_predicted) # call the controller to get a steering angle
         speed = self.set_speed(alpha)
         boat_command = (speed, alpha)
