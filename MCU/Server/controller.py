@@ -78,6 +78,6 @@ class boat_pid():
     #  - Possibly rework according to justin's whiteboard talk
 
 
-b = boat_pid()
-state = (3, np.pi)
-print(b.command_boat(state))
+# b = boat_pid()
+# state = (3, np.pi)
+# print(b.command_boat(state))

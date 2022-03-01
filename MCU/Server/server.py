@@ -14,6 +14,7 @@ import re
 
 
 # globals to be updated in pid thread
+pid_mode = True
 speed_pid_output = 0
 alpha_pid_output = 0
 
@@ -96,6 +97,7 @@ def server():
             CommandSocket.sendto(bytes('s'+str(round(speed,2)), 'utf-8'), (UDP_IP, UDP_PORT_CMD))
 
 
+# need to get from perception module
 def get_boat_state():
     return 0, 0
 
@@ -109,10 +111,12 @@ def run_controller(recalculate_interval_ms=100):
 
 
 def main():
-    t1 = Thread(target=run_controller, args=(100,))
-    t1.start()
+    if pid_mode:
+        t1 = Thread(target=run_controller, args=(100,))
+        t1.start()
     server()
-  
+
+
 if __name__=="__main__":
     main()
 
