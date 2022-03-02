@@ -29,6 +29,9 @@ def accept_json():
     return PARAMS;
 
 def create_csv():
+    """
+    Creates csv to record data from the boats.
+    """
     f = open('recordings\\record.csv', 'w')
     writer = csv.writer(f)
     header = ['time', 'boat_cx', 'boat_cy', 'world_cx', 'world_cy', 'theta']
@@ -67,18 +70,18 @@ def main(params):
                 undistorter = UndistortionModule()
             if window != "undistort":
                 cv2.namedWindow(window)
-    f, writer = create_csv()
+    # f, writer = create_csv()
     cap = cv2.VideoCapture("udp://127.0.0.1:10000")
     counter = 0
     t = time()
     while cap.isOpened():
         nmat, frame = cap.read()
         if nmat:
-            if counter <= 4: # reduces effective frame rate
+            if counter <= 3: # reduces effective frame rate
                 counter += 1
-                key = cv2.waitKey(3)
+                key = cv2.waitKey(1)
             else:
-                write_data = [time() - t]
+                #write_data = [time() - t]
                 if params["undistort"]: # camera lens undistortion
                     undistorted_im = frame
                     undistorted_im = undistorter.undistort(undistorted_im)
@@ -103,11 +106,11 @@ def main(params):
                             elif axis == 'z':
                                 cv2.arrowedLine(april_im, boat_c, pt, (255, 0, 0))
                                 april_im = cv2.putText(april_im, axis + '_b', pt, fontFace=1, fontScale=1.0, color=(255, 0, 0))
-                        write_data.append(float(boat_c[0])) # boat cx
-                        write_data.append(float(boat_c[1])) # boat cy
-                        write_data.append(float(origins["ground"][0][0][0])) # world cx
-                        write_data.append(float(origins["ground"][0][0][1])) # world cy
-                        write_data.append(theta)
+                        # write_data.append(float(boat_c[0])) # boat cx
+                        # write_data.append(float(boat_c[1])) # boat cy
+                        # write_data.append(float(origins["ground"][0][0][0])) # world cx
+                        # write_data.append(float(origins["ground"][0][0][1])) # world cy
+                        # write_data.append(theta)
                         if ground_origin_overlay is not None:
                             for i, pt in enumerate(ground_origin_overlay[1:]): # ground coordinate system overlayed onto boat center
                                 axis = AXES[str(i)]
@@ -125,7 +128,6 @@ def main(params):
                         for pt in ground_plane:
                             cv2.circle(april_im, pt, 3, (0, 0, 255), -1)
                     imgs["april"] = april_im
-                
                 if params["edges"] and not params["contours"]: # edge detection
                     if params["undistort"]:
                         edge_im = edgedetection(undistorted_im, params["contour_thresh"])
@@ -159,10 +161,10 @@ def main(params):
                     imgs["boat_color_threshed"] = boat_im
 
                 displayResults(imgs)
-                if write_data[0] < 60:
-                    writer.writerow(write_data)
-                else:
-                    f.close()
+                # if write_data[0] < 60:
+                #     writer.writerow(write_data)
+                # else:
+                #     f.close()
                 counter = 0
                 key = cv2.waitKey(1)
             if key == ord('q'):
@@ -177,7 +179,7 @@ if __name__ == "__main__":
     t2 = threading.Thread(target=main, args=(params,))
   
     # starting thread 0
-    # t0.start()conda
+    # t0.start()
     # sleep(30) # wait to establish connection
     # starting thread 1
     t1.start()

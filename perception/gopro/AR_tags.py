@@ -110,7 +110,7 @@ class AR_PlaneDetection(object):
         """
         Create axes for a tag, stored as a 2x2 numpy array (x, y) (pixel coordinates)
         """
-        xyz_world = [(0.25, 0.0, 0.0), (0.0, -0.25, 0.0), (0.0, 0.0, 0.25)]
+        xyz_world = [(1.0, 0.0, 0.0), (0.0, -1.0, 0.0), (0.0, 0.0, 1.0)]
         if p is None:
             p = get_transformation(self.__K, tag.pose_R, tag.pose_t)
         xy_origin = convert_3d_to_2d(p, xyz_world)
@@ -140,19 +140,49 @@ class AR_PlaneDetection(object):
 
     def calculateHeading(self, tag_data):
         """
-        Compute Heading Angle of the boat relative wrt world coordinate system
+        Compute Heading Angle of the boat relative wrt world coordinate system and the y-distance of the boat to the world origin
+        Note: this funtion is done in the image plane
         """
         ground_origin_overlay = self.ground2boat(tag_data)
         theta = None
         if ground_origin_overlay is not None:
             boat_origin = tag_data["boat"][0]
+            world_origin = tag_data["ground"][0]
             boat_x = (boat_origin[2][0] - boat_origin[0][0], boat_origin[2][1] - boat_origin[0][1])
             world_x = (ground_origin_overlay[2][0] - ground_origin_overlay[0][0], ground_origin_overlay[2][1] - ground_origin_overlay[0][1])
             # use dot product to compute angle
             dot_prod = boat_x[0]*world_x[0] + boat_x[1]*world_x[1]
             cos_theta = dot_prod / (sqrt(boat_x[0]**2 + boat_x[1]**2)*sqrt(world_x[0]**2 + world_x[1]**2))
             theta = acos(max(-1.0, min(1.0, cos_theta)))
-            print(theta)
-            print()
-            print()
+            # distance along the y-axis of the world coordinates corresponds to x-axis of the image
+            distance = boat_origin[0] - world_origin[0]
         return ground_origin_overlay, theta;
+
+
+    def computeState(self, tag_data):
+        """
+        Compute the Heading and Offset of the boat wrt the world coordinate system.
+        Note: this function is done in the world coordinate system using rotation matrices
+        """
+        theta = None
+        distance = None
+        if "boat" in tag_data.keys() and "ground" in tag_data.keys():
+            # boat wrt camera
+            R_bc = tag_data["boat"][1]
+            t_bc = tag_data["boat"][2]
+            # world wrt camera
+            R_wc = tag_data["ground"][1]
+            t_wc = tag_data["ground"][2]
+            # boat wrt world
+            R_bw = R_bc @ R_wc.T
+            t_bw = t_bc - t_wc
+            # y axis of the world wrt to world
+            y_ww = (0.0, 1.0, 0.0)
+            # y axis of the boat wrt the world
+            y_bw = (R_bw @ y_ww) + t_bw
+            # theta angle -> heading of the boat in the world
+            cos_theta = y_bw[1] / np.linalg.norm(y_bw)
+            theta = acos(max(-1.0, min(1.0, cos_theta)))
+            # distance
+            distance = t_bw[1]
+        return distance, theta;

@@ -1,5 +1,5 @@
-   MainThread:10:56:20.226 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
-   MainThread:10:56:20.386 util.py                                   335 DEBUG    | Receive response --> 
+   MainThread:00:56:31.876 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
+   MainThread:00:56:32.716 util.py                                   335 DEBUG    | Receive response --> 
 There is 1 interface on the system: 
 
     Name                   : Wi-Fi 2
@@ -7,252 +7,186 @@ There is 1 interface on the system:
     GUID                   : ad422146-9c01-4d73-bab2-5c12dfa1b7f9
     Physical address       : 9c:b6:d0:8e:66:ad
     Interface type         : Primary
-    State                  : disconnected
-    Radio status           : Hardware On
-                             Software On
+    State                  : connected
+    SSID                   : Abby Shapiro's Less Modest Wifi
+    BSSID                  : 6c:63:9c:69:3f:c9
+    Network type           : Infrastructure
+    Radio type             : 802.11ac
+    Authentication         : WPA2-Personal
+    Cipher                 : CCMP
+    Connection mode        : Auto Connect
+    Band                   : 5 GHz
+    Channel                : 153
+    Receive rate (Mbps)    : 866.7
+    Transmit rate (Mbps)   : 866.7
+    Signal                 : 92% 
+    Profile                : Abby Shapiro's Less Modest Wifi 
 
     Hosted network status  : Not available
 
 
-   MainThread:10:56:20.387 wireless.py                                66 DEBUG    | Using Wifi driver: Wireless with interface Wi-Fi 2
-         data:10:56:20.611 scanner.py                                 88 DEBUG    | Received 69:03:B3:BA:A5:F2: Unknown.
-         data:10:56:20.614 scanner.py                                 88 DEBUG    | Received 69:03:B3:BA:A5:F2: Unknown.
-         data:10:56:20.617 scanner.py                                 88 DEBUG    | Received F9:70:60:F9:5B:F0: Unknown.
-         data:10:56:20.621 scanner.py                                 88 DEBUG    | Received 03:2E:0F:6B:A9:58: Unknown.
-         data:10:56:20.626 scanner.py                                 88 DEBUG    | Received 68:11:5B:2A:12:A8: Unknown.
-         data:10:56:20.630 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:20.665 scanner.py                                 88 DEBUG    | Received 63:DE:44:F9:82:6C: Unknown.
-         data:10:56:20.670 scanner.py                                 88 DEBUG    | Received 42:C5:2B:D8:3D:25: Unknown.
-         data:10:56:20.672 scanner.py                                 88 DEBUG    | Received 42:C5:2B:D8:3D:25: Unknown.
-         data:10:56:20.677 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:20.679 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:20.682 scanner.py                                 88 DEBUG    | Received 12:EF:25:02:D9:02: Unknown.
-         data:10:56:20.813 scanner.py                                 88 DEBUG    | Received 4B:AD:AA:D5:A3:85: Unknown.
-         data:10:56:20.814 scanner.py                                 88 DEBUG    | Received 4B:AD:AA:D5:A3:85: Unknown.
-         data:10:56:20.818 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:20.821 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:20.824 scanner.py                                 88 DEBUG    | Received 03:2E:0F:6B:A9:58: Unknown.
-         data:10:56:20.933 scanner.py                                 88 DEBUG    | Received 70:BA:10:E1:AD:FD: Unknown.
-         data:10:56:20.936 scanner.py                                 88 DEBUG    | Received 42:C5:2B:D8:3D:25: Unknown.
-         data:10:56:20.939 scanner.py                                 88 DEBUG    | Received 42:C5:2B:D8:3D:25: Unknown.
-         data:10:56:20.943 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Unknown.
-         data:10:56:20.946 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Nest Cam.
-         data:10:56:20.949 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
-         data:10:56:20.952 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
-         data:10:56:21.044 scanner.py                                 88 DEBUG    | Received 76:EB:9C:66:AB:67: Unknown.
-         data:10:56:21.048 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:21.050 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:21.054 scanner.py                                 88 DEBUG    | Received 61:78:4F:5C:0A:F1: Unknown.
-         data:10:56:21.056 scanner.py                                 88 DEBUG    | Received 61:78:4F:5C:0A:F1: Unknown.
-         data:10:56:21.058 scanner.py                                 88 DEBUG    | Received 4E:D8:A4:2D:B4:08: Unknown.
-         data:10:56:21.060 scanner.py                                 88 DEBUG    | Received 33:F3:5B:A1:DD:30: Unknown.
-         data:10:56:21.158 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:7F: Unknown.
-         data:10:56:21.161 scanner.py                                 88 DEBUG    | Received 76:56:67:D8:71:26: Unknown.
-         data:10:56:21.164 scanner.py                                 88 DEBUG    | Received 76:56:67:D8:71:26: Unknown.
-         data:10:56:21.250 scanner.py                                 88 DEBUG    | Received ED:58:73:FC:F6:DA: Unknown.
-         data:10:56:21.271 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
-         data:10:56:21.275 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
-         data:10:56:21.278 scanner.py                                 88 DEBUG    | Received E5:CD:7C:05:5E:03: Unknown.
-         data:10:56:21.280 scanner.py                                 88 DEBUG    | Received 33:F3:5B:A1:DD:30: Unknown.
-         data:10:56:21.393 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:21.407 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:9A: Unknown.
-         data:10:56:21.411 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Unknown.
-         data:10:56:21.414 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Nest Cam.
-         data:10:56:21.417 scanner.py                                 88 DEBUG    | Received 12:EF:25:02:D9:02: Unknown.
-         data:10:56:21.421 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:7F: Unknown.
-         data:10:56:21.425 scanner.py                                 88 DEBUG    | Received 75:87:7C:86:F5:4E: Unknown.
-         data:10:56:21.427 scanner.py                                 88 DEBUG    | Received 75:87:7C:86:F5:4E: Unknown.
-         data:10:56:21.536 scanner.py                                 88 DEBUG    | Received 2B:94:4A:07:DE:5E: Unknown.
-         data:10:56:21.554 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:21.555 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:21.640 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Unknown.
-         data:10:56:21.644 scanner.py                                 88 DEBUG    | Received 3B:AD:D0:0F:BA:A6: Unknown.
-         data:10:56:21.647 scanner.py                                 88 DEBUG    | Received 56:2D:AE:2E:98:F9: Unknown.
-         data:10:56:21.649 scanner.py                                 88 DEBUG    | Received 56:2D:AE:2E:98:F9: Unknown.
-         data:10:56:21.657 scanner.py                                 88 DEBUG    | Received 6A:7A:EB:82:5B:6E: Unknown.
-         data:10:56:21.660 scanner.py                                 88 DEBUG    | Received 6C:AF:B0:66:B5:D7: Unknown.
-         data:10:56:21.663 scanner.py                                 88 DEBUG    | Received 6C:AF:B0:66:B5:D7: Unknown.
-         data:10:56:21.665 scanner.py                                 88 DEBUG    | Received 03:2E:0F:6B:A9:58: Unknown.
-         data:10:56:21.702 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:21.704 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:21.717 scanner.py                                 88 DEBUG    | Received 5A:2E:EA:28:B9:7D: Unknown.
-         data:10:56:21.721 scanner.py                                 88 DEBUG    | Received 68:93:FC:ED:2D:E8: Unknown.
-         data:10:56:21.724 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:21.844 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:21.847 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:21.935 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:8A: Unknown.
-         data:10:56:21.938 scanner.py                                 88 DEBUG    | Received 12:EF:25:02:D9:02: Unknown.
-         data:10:56:21.941 scanner.py                                 88 DEBUG    | Received 4C:FA:93:8F:F2:92: Unknown.
-         data:10:56:21.945 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:21.948 scanner.py                                 88 DEBUG    | Received E8:1F:82:40:07:F8: Unknown.
-         data:10:56:21.952 scanner.py                                 88 DEBUG    | Received DD:F4:0D:99:E0:63: Unknown.
-         data:10:56:21.954 scanner.py                                 88 DEBUG    | Received 2B:94:4A:07:DE:5E: Unknown.
-         data:10:56:21.957 scanner.py                                 88 DEBUG    | Received 3B:AD:D0:0F:BA:A6: Unknown.
-         data:10:56:22.074 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:80: Unknown.
-         data:10:56:22.079 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:31: Unknown.
-         data:10:56:22.083 scanner.py                                 88 DEBUG    | Received 03:2E:0F:6B:A9:58: Unknown.
-         data:10:56:22.086 scanner.py                                 88 DEBUG    | Received E5:C4:89:31:BE:F6: Unknown.
-         data:10:56:22.260 scanner.py                                 88 DEBUG    | Received 69:03:B3:BA:A5:F2: Unknown.
-         data:10:56:22.265 scanner.py                                 88 DEBUG    | Received 46:A2:0D:83:B8:EC: Unknown.
-         data:10:56:22.268 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:93:AA: Unknown.
-         data:10:56:22.271 scanner.py                                 88 DEBUG    | Received 2B:94:4A:07:DE:5E: Unknown.
-         data:10:56:22.497 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:22.499 scanner.py                                 88 DEBUG    | Received 03:2E:0F:6B:A9:58: Unknown.
-         data:10:56:22.507 scanner.py                                 88 DEBUG    | Received 64:16:66:7D:01:2B: Unknown.
-         data:10:56:22.567 scanner.py                                 88 DEBUG    | Received 75:87:7C:86:F5:4E: Unknown.
-         data:10:56:22.573 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:C7: Unknown.
-         data:10:56:22.577 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:93:AA: Unknown.
-         data:10:56:22.580 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:93:AA: Nest Cam.
-         data:10:56:22.584 scanner.py                                 88 DEBUG    | Received 6F:E0:16:D3:88:60: Unknown.
-         data:10:56:22.588 scanner.py                                 88 DEBUG    | Received 6F:E0:16:D3:88:60: Unknown.
-         data:10:56:22.591 scanner.py                                 88 DEBUG    | Received 2B:94:4A:07:DE:5E: Unknown.
-         data:10:56:22.595 scanner.py                                 88 DEBUG    | Received 58:ED:06:78:49:8B: Unknown.
-         data:10:56:22.598 scanner.py                                 88 DEBUG    | Received 58:ED:06:78:49:8B: Unknown.
-         data:10:56:22.602 scanner.py                                 88 DEBUG    | Received 42:C5:2B:D8:3D:25: Unknown.
-         data:10:56:22.603 scanner.py                                 88 DEBUG    | Received 42:C5:2B:D8:3D:25: Unknown.
-         data:10:56:22.606 scanner.py                                 88 DEBUG    | Received F5:91:BB:18:21:88: Unknown.
-         data:10:56:22.676 scanner.py                                 88 DEBUG    | Received BC:25:F0:1A:24:2D: Unknown.
-         data:10:56:22.680 scanner.py                                 88 DEBUG    | Received 28:FA:19:20:20:08: JBL Flip 5.
-         data:10:56:22.683 scanner.py                                 88 DEBUG    | Received 2B:94:4A:07:DE:5E: Unknown.
-         data:10:56:22.824 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:22.827 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:22.830 scanner.py                                 88 DEBUG    | Received 62:B5:9F:0D:E3:A4: Unknown.
-         data:10:56:22.832 scanner.py                                 88 DEBUG    | Received 62:B5:9F:0D:E3:A4: Unknown.
-         data:10:56:22.835 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:22.839 scanner.py                                 88 DEBUG    | Received 63:DE:44:F9:82:6C: Unknown.
-         data:10:56:22.841 scanner.py                                 88 DEBUG    | Received 63:DE:44:F9:82:6C: Unknown.
-         data:10:56:22.843 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Unknown.
-         data:10:56:22.846 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Nest Cam.
-         data:10:56:22.952 scanner.py                                 88 DEBUG    | Received 67:1F:90:5E:BD:1B: Unknown.
-         data:10:56:22.955 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:23.066 scanner.py                                 88 DEBUG    | Received 75:87:7C:86:F5:4E: Unknown.
-         data:10:56:23.070 scanner.py                                 88 DEBUG    | Received 51:CC:61:BD:21:E0: Unknown.
-         data:10:56:23.072 scanner.py                                 88 DEBUG    | Received F7:3B:77:3E:8E:0D: Unknown.
-         data:10:56:23.084 scanner.py                                 88 DEBUG    | Received 46:A2:0D:83:B8:EC: Unknown.
-         data:10:56:23.087 scanner.py                                 88 DEBUG    | Received 12:EF:25:02:D9:02: Unknown.
-         data:10:56:23.089 scanner.py                                 88 DEBUG    | Received C7:40:87:1D:02:03: Unknown.
-         data:10:56:23.145 scanner.py                                 88 DEBUG    | Received 26:6A:CB:5C:29:32: Unknown.
-         data:10:56:23.160 scanner.py                                 88 DEBUG    | Received 75:13:56:32:68:44: Unknown.
-         data:10:56:23.170 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Unknown.
-         data:10:56:23.173 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:23.179 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
-         data:10:56:23.327 scanner.py                                 88 DEBUG    | Received 6E:24:34:8F:A1:1A: Unknown.
-         data:10:56:23.331 scanner.py                                 88 DEBUG    | Received 7A:8C:8C:28:F6:0D: Unknown.
-         data:10:56:23.333 scanner.py                                 88 DEBUG    | Received 3B:AD:D0:0F:BA:A6: Unknown.
-         data:10:56:23.343 scanner.py                                 88 DEBUG    | Received 51:CC:61:BD:21:E0: Unknown.
-         data:10:56:23.345 scanner.py                                 88 DEBUG    | Received 59:80:BA:DA:31:EB: Unknown.
-         data:10:56:23.489 scanner.py                                 88 DEBUG    | Received 46:A2:0D:83:B8:EC: Unknown.
-         data:10:56:23.493 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
-         data:10:56:23.497 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
-         data:10:56:23.500 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:D8: Unknown.
-         data:10:56:23.502 scanner.py                                 88 DEBUG    | Received 12:EF:25:02:D9:02: Unknown.
-         data:10:56:23.505 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:23.507 scanner.py                                 88 DEBUG    | Received 2B:94:4A:07:DE:5E: Unknown.
-         data:10:56:23.628 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:8B:B0: Unknown.
-         data:10:56:23.634 scanner.py                                 88 DEBUG    | Received 67:1F:90:5E:BD:1B: Unknown.
-         data:10:56:23.635 scanner.py                                 88 DEBUG    | Received 67:1F:90:5E:BD:1B: Unknown.
-         data:10:56:23.639 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:23.640 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:23.726 scanner.py                                 88 DEBUG    | Received 60:C8:D7:CC:1F:5C: Unknown.
-         data:10:56:23.729 scanner.py                                 88 DEBUG    | Received 75:13:56:32:68:44: Unknown.
-         data:10:56:23.733 scanner.py                                 88 DEBUG    | Received 64:16:66:7D:01:2B: Unknown.
-         data:10:56:23.736 scanner.py                                 88 DEBUG    | Received 3B:AD:D0:0F:BA:A6: Unknown.
-         data:10:56:23.738 scanner.py                                 88 DEBUG    | Received DA:10:FD:EC:7A:E6: Unknown.
-         data:10:56:23.865 scanner.py                                 88 DEBUG    | Received EF:01:5C:D0:EA:60: Unknown.
-         data:10:56:23.868 scanner.py                                 88 DEBUG    | Received 75:87:7C:86:F5:4E: Unknown.
-         data:10:56:23.869 scanner.py                                 88 DEBUG    | Received 75:87:7C:86:F5:4E: Unknown.
-         data:10:56:23.998 scanner.py                                 88 DEBUG    | Received 7A:8C:8C:28:F6:0D: Unknown.
-         data:10:56:24.001 scanner.py                                 88 DEBUG    | Received 75:FE:64:5A:FD:3A: Unknown.
-         data:10:56:24.003 scanner.py                                 88 DEBUG    | Received 75:FE:64:5A:FD:3A: Unknown.
-         data:10:56:24.007 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:24.008 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:24.011 scanner.py                                 88 DEBUG    | Received 65:DD:6E:D0:76:20: Unknown.
-         data:10:56:24.013 scanner.py                                 88 DEBUG    | Received 65:DD:6E:D0:76:20: Unknown.
-         data:10:56:24.108 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:D8: Unknown.
-         data:10:56:24.116 scanner.py                                 88 DEBUG    | Received 4B:AD:AA:D5:A3:85: Unknown.
-         data:10:56:24.118 scanner.py                                 88 DEBUG    | Received 4B:AD:AA:D5:A3:85: Unknown.
-         data:10:56:24.123 scanner.py                                 88 DEBUG    | Received 6C:AF:B0:66:B5:D7: Unknown.
-         data:10:56:24.124 scanner.py                                 88 DEBUG    | Received 6C:AF:B0:66:B5:D7: Unknown.
-         data:10:56:24.128 scanner.py                                 88 DEBUG    | Received 28:FA:19:20:20:08: JBL Flip 5.
-         data:10:56:24.130 scanner.py                                 88 DEBUG    | Received 42:E3:D2:FB:29:36: Unknown.
-         data:10:56:24.133 scanner.py                                 88 DEBUG    | Received 56:2D:AE:2E:98:F9: Unknown.
-         data:10:56:24.134 scanner.py                                 88 DEBUG    | Received 56:2D:AE:2E:98:F9: Unknown.
-         data:10:56:24.137 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
-         data:10:56:24.140 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
-         data:10:56:24.186 scanner.py                                 88 DEBUG    | Received 75:13:56:32:68:44: Unknown.
-         data:10:56:24.190 scanner.py                                 88 DEBUG    | Received 67:1F:90:5E:BD:1B: Unknown.
-         data:10:56:24.192 scanner.py                                 88 DEBUG    | Received 04:84:4D:4F:40:89: Unknown.
-         data:10:56:24.196 scanner.py                                 88 DEBUG    | Received 62:B5:9F:0D:E3:A4: Unknown.
-         data:10:56:24.198 scanner.py                                 88 DEBUG    | Received 62:B5:9F:0D:E3:A4: Unknown.
-         data:10:56:24.202 scanner.py                                 88 DEBUG    | Received 75:13:56:32:68:44: Unknown.
-         data:10:56:24.205 scanner.py                                 88 DEBUG    | Received 07:8F:1B:A4:A1:81: Unknown.
-         data:10:56:24.321 scanner.py                                 88 DEBUG    | Received 61:78:4F:5C:0A:F1: Unknown.
-         data:10:56:24.322 scanner.py                                 88 DEBUG    | Received 61:78:4F:5C:0A:F1: Unknown.
-         data:10:56:24.329 scanner.py                                 88 DEBUG    | Received 4C:FA:93:8F:F2:92: Unknown.
-         data:10:56:24.335 scanner.py                                 88 DEBUG    | Received 76:EB:9C:66:AB:67: Unknown.
-         data:10:56:24.337 scanner.py                                 88 DEBUG    | Received 26:7F:22:21:2A:6B: Unknown.
-         data:10:56:24.340 scanner.py                                 88 DEBUG    | Received 2B:94:4A:07:DE:5E: Unknown.
-         data:10:56:24.431 scanner.py                                 88 DEBUG    | Received 46:A2:0D:83:B8:EC: Unknown.
-         data:10:56:24.433 scanner.py                                 88 DEBUG    | Received 46:A2:0D:83:B8:EC: Unknown.
-         data:10:56:24.438 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:24.441 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:24.444 scanner.py                                 88 DEBUG    | Received 51:CC:61:BD:21:E0: Unknown.
-         data:10:56:24.446 scanner.py                                 88 DEBUG    | Received 51:CC:61:BD:21:E0: Unknown.
-         data:10:56:24.449 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
-         data:10:56:24.451 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
-         data:10:56:24.453 scanner.py                                 88 DEBUG    | Received 2B:94:4A:07:DE:5E: Unknown.
-         data:10:56:24.575 scanner.py                                 88 DEBUG    | Received 3B:AD:D0:0F:BA:A6: Unknown.
-         data:10:56:24.585 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:82: Unknown.
-         data:10:56:24.587 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:93:AA: Unknown.
-         data:10:56:24.590 scanner.py                                 88 DEBUG    | Received 64:16:66:7C:93:AA: Nest Cam.
-         data:10:56:24.593 scanner.py                                 88 DEBUG    | Received 4E:D8:A4:2D:B4:08: Unknown.
-         data:10:56:24.598 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
-         data:10:56:24.599 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
-         data:10:56:24.741 scanner.py                                 88 DEBUG    | Received 62:B5:9F:0D:E3:A4: Unknown.
-         data:10:56:24.743 scanner.py                                 88 DEBUG    | Received 62:B5:9F:0D:E3:A4: Unknown.
-         data:10:56:24.748 scanner.py                                 88 DEBUG    | Received 60:83:1D:10:5A:7C: Unknown.
-         data:10:56:24.813 scanner.py                                 88 DEBUG    | Received B0:1F:81:D6:FC:70: Unknown.
-         data:10:56:24.817 scanner.py                                 88 DEBUG    | Received 55:53:5D:19:F4:84: Unknown.
-         data:10:56:24.820 scanner.py                                 88 DEBUG    | Received 65:DD:6E:D0:76:20: Unknown.
-         data:10:56:24.822 scanner.py                                 88 DEBUG    | Received 65:DD:6E:D0:76:20: Unknown.
-         data:10:56:24.825 scanner.py                                 88 DEBUG    | Received 09:FB:DA:78:1B:25: Unknown.
-         data:10:56:24.828 scanner.py                                 88 DEBUG    | Received 75:FE:64:5A:FD:3A: Unknown.
-         data:10:56:24.978 scanner.py                                 88 DEBUG    | Received 28:FA:19:20:20:08: JBL Flip 5.
-         data:10:56:24.980 scanner.py                                 88 DEBUG    | Received 4E:D8:A4:2D:B4:08: Unknown.
-         data:10:56:24.982 scanner.py                                 88 DEBUG    | Received 12:EF:25:02:D9:02: Unknown.
-         data:10:56:25.099 scanner.py                                 88 DEBUG    | Received 3B:AD:D0:0F:BA:A6: Unknown.
-         data:10:56:25.105 scanner.py                                 88 DEBUG    | Received 67:1F:90:5E:BD:1B: Unknown.
-         data:10:56:25.252 scanner.py                                 88 DEBUG    | Received 64:16:66:7D:01:2B: Unknown.
-         data:10:56:25.385 scanner.py                                 88 DEBUG    | Received 4C:FA:93:8F:F2:92: Unknown.
-         data:10:56:25.388 scanner.py                                 88 DEBUG    | Received 09:FB:DA:78:1B:25: Unknown.
-         data:10:56:25.436 scanner.py                                156 DEBUG    | 70 devices found. Watcher status: 3.
-   MainThread:10:56:25.437 client.py                                 102 INFO     | Establishing the BLE connection
-         data:10:56:25.444 client.py                                 175 DEBUG    | Connecting to BLE device @ F4:7A:85:67:0E:0A
-   MainThread:10:56:35.589 bleak_wrapper.py                          267 WARNING  | Connection request timed out
-   MainThread:10:56:35.593 client.py                                 108 WARNING  | Failed to connect. Retrying #0
-         data:10:56:35.597 client.py                                 175 DEBUG    | Connecting to BLE device @ F4:7A:85:67:0E:0A
-      Dummy-1:10:56:38.684 client.py                                 235 DEBUG    | session_status_changed_event_handler: id: <_bleak_winrt_Windows_Devices_Bluetooth.BluetoothDeviceId object at 0x05639DD0>, error: 0, status: 1
-         data:10:56:38.685 client.py                                 444 DEBUG    | Get Services...
-         data:10:56:43.089 client.py                                 492 INFO     | Services resolved for BleakClientWinRT (F4:7A:85:67:0E:0A)
-         data:10:56:43.269 client.py                                 575 DEBUG    | Read Descriptor 000F : bytearray(b'\x00\x00')
-         data:10:56:43.385 client.py                                 575 DEBUG    | Read Descriptor 002A : bytearray(b'\x00\x00')
-         data:10:56:43.507 client.py                                 575 DEBUG    | Read Descriptor 0032 : bytearray(b'\x00\x00')
-         data:10:56:43.627 client.py                                 575 DEBUG    | Read Descriptor 0037 : bytearray(b'\x00\x00')
-         data:10:56:43.747 client.py                                 575 DEBUG    | Read Descriptor 003C : bytearray(b'\x00\x00')
-         data:10:56:43.867 client.py                                 575 DEBUG    | Read Descriptor 0041 : bytearray(b'\x00\x00')
-         data:10:56:43.987 client.py                                 575 DEBUG    | Read Descriptor 0047 : bytearray(b'\x00\x00')
-         data:10:56:44.104 client.py                                 575 DEBUG    | Read Descriptor 004B : bytearray(b'\x00\x00')
-         data:10:56:44.228 client.py                                 575 DEBUG    | Read Descriptor 0050 : bytearray(b'\x00\x00')
-         data:10:56:44.347 client.py                                 575 DEBUG    | Read Descriptor 0053 : bytearray(b'\x00\x00')
-   MainThread:10:56:45.428 builders.py                                81 INFO     | 
+   MainThread:00:56:32.716 wireless.py                                66 DEBUG    | Using Wifi driver: Wireless with interface Wi-Fi 2
+         data:00:56:32.935 scanner.py                                 88 DEBUG    | Received 3B:46:8B:9A:CC:0A: Unknown.
+         data:00:56:33.131 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:33.135 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:33.143 scanner.py                                 88 DEBUG    | Received 7E:8A:6F:99:40:69: Unknown.
+         data:00:56:33.146 scanner.py                                 88 DEBUG    | Received 7E:8A:6F:99:40:69: Unknown.
+         data:00:56:33.151 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: 19073A08553245FAD.
+         data:00:56:33.154 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: Unknown.
+         data:00:56:33.252 scanner.py                                 88 DEBUG    | Received 50:5E:92:7C:6A:45: Unknown.
+         data:00:56:33.255 scanner.py                                 88 DEBUG    | Received 50:5E:92:7C:6A:45: Unknown.
+         data:00:56:33.443 scanner.py                                 88 DEBUG    | Received 3B:46:8B:9A:CC:0A: Unknown.
+         data:00:56:33.458 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:33.462 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:33.563 scanner.py                                 88 DEBUG    | Received 84:2E:14:97:6D:D3: Unknown.
+         data:00:56:33.567 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: 19073A08553245FAD.
+         data:00:56:33.570 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: Unknown.
+         data:00:56:33.576 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:33.578 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:33.633 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:33.637 scanner.py                                 88 DEBUG    | Received 71:7D:4B:54:D8:E0: Unknown.
+         data:00:56:33.639 scanner.py                                 88 DEBUG    | Received 71:7D:4B:54:D8:E0: Unknown.
+         data:00:56:33.751 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:33.754 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:33.758 scanner.py                                 88 DEBUG    | Received 45:C7:AF:DA:36:E0: Unknown.
+         data:00:56:33.761 scanner.py                                 88 DEBUG    | Received 45:C7:AF:DA:36:E0: Unknown.
+         data:00:56:33.766 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:33.768 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:34.016 scanner.py                                 88 DEBUG    | Received 13:B6:73:E0:3E:D1: Unknown.
+         data:00:56:34.049 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:34.055 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:34.127 scanner.py                                 88 DEBUG    | Received 13:B6:73:E0:3E:D1: Unknown.
+         data:00:56:34.137 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:34.143 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:34.158 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:34.165 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:34.211 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:34.218 scanner.py                                 88 DEBUG    | Received 37:E5:D1:4F:13:FA: Unknown.
+         data:00:56:34.225 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:34.228 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:37.772 scanner.py                                156 DEBUG    | 12 devices found. Watcher status: 3.
+   MainThread:00:56:37.772 client.py                                  80 WARNING  | Failed to find a device in 5 seconds. Retrying #1
+         data:00:56:42.817 scanner.py                                156 DEBUG    | 0 devices found. Watcher status: 3.
+   MainThread:00:56:42.818 client.py                                  80 WARNING  | Failed to find a device in 5 seconds. Retrying #2
+         data:00:56:44.551 scanner.py                                 88 DEBUG    | Received 77:FF:28:A2:20:8B: Unknown.
+         data:00:56:44.823 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:44.829 scanner.py                                 88 DEBUG    | Received 4B:76:BD:08:AE:9B: Unknown.
+         data:00:56:44.832 scanner.py                                 88 DEBUG    | Received 4B:76:BD:08:AE:9B: Unknown.
+         data:00:56:44.836 scanner.py                                 88 DEBUG    | Received BC:33:AC:15:F7:27: Unknown.
+         data:00:56:44.840 scanner.py                                 88 DEBUG    | Received BC:33:AC:15:F7:27: xb6_ble.
+         data:00:56:44.984 scanner.py                                 88 DEBUG    | Received 45:C7:AF:DA:36:E0: Unknown.
+         data:00:56:44.987 scanner.py                                 88 DEBUG    | Received 45:C7:AF:DA:36:E0: Unknown.
+         data:00:56:45.143 scanner.py                                 88 DEBUG    | Received 7E:8A:6F:99:40:69: Unknown.
+         data:00:56:45.150 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:45.158 scanner.py                                 88 DEBUG    | Received BC:33:AC:15:F7:27: Unknown.
+         data:00:56:45.161 scanner.py                                 88 DEBUG    | Received BC:33:AC:15:F7:27: xb6_ble.
+         data:00:56:45.164 scanner.py                                 88 DEBUG    | Received 7C:67:14:85:AC:10: Unknown.
+         data:00:56:45.167 scanner.py                                 88 DEBUG    | Received 7C:67:14:85:AC:10: Unknown.
+         data:00:56:45.336 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:45.339 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:45.411 scanner.py                                 88 DEBUG    | Received 14:B4:57:AF:7B:74: Unknown.
+         data:00:56:45.417 scanner.py                                 88 DEBUG    | Received 14:B4:57:AF:7B:74: 1908.
+         data:00:56:45.421 scanner.py                                 88 DEBUG    | Received 13:B6:73:E0:3E:D1: Unknown.
+         data:00:56:45.569 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: 19073A08553245FAD.
+         data:00:56:45.574 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: Unknown.
+         data:00:56:45.605 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:45.610 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:45.616 scanner.py                                 88 DEBUG    | Received 24:52:EE:D4:68:DD: Unknown.
+         data:00:56:45.807 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:45.817 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:45.824 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:45.830 scanner.py                                 88 DEBUG    | Received 3B:46:8B:9A:CC:0A: Unknown.
+         data:00:56:45.867 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:45.877 scanner.py                                 88 DEBUG    | Received 7C:67:14:85:AC:10: Unknown.
+         data:00:56:45.881 scanner.py                                 88 DEBUG    | Received 7C:67:14:85:AC:10: Unknown.
+         data:00:56:45.887 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
+         data:00:56:45.891 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
+         data:00:56:45.895 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:45.899 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:46.012 scanner.py                                 88 DEBUG    | Received 4B:76:BD:08:AE:9B: Unknown.
+         data:00:56:46.017 scanner.py                                 88 DEBUG    | Received 3B:46:8B:9A:CC:0A: Unknown.
+         data:00:56:46.094 scanner.py                                 88 DEBUG    | Received 45:C7:AF:DA:36:E0: Unknown.
+         data:00:56:46.100 scanner.py                                 88 DEBUG    | Received 45:C7:AF:DA:36:E0: Unknown.
+         data:00:56:46.109 scanner.py                                 88 DEBUG    | Received BC:33:AC:15:F7:27: Unknown.
+         data:00:56:46.115 scanner.py                                 88 DEBUG    | Received BC:33:AC:15:F7:27: xb6_ble.
+         data:00:56:46.258 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: 19073A08553245FAD.
+         data:00:56:46.264 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: Unknown.
+         data:00:56:46.374 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:46.377 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:46.504 scanner.py                                 88 DEBUG    | Received 4B:15:58:0C:F1:F1: Unknown.
+         data:00:56:46.509 scanner.py                                 88 DEBUG    | Received 4B:15:58:0C:F1:F1: Unknown.
+         data:00:56:46.516 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
+         data:00:56:46.522 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
+         data:00:56:46.559 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:46.564 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:46.726 scanner.py                                 88 DEBUG    | Received 75:89:41:49:9F:42: Unknown.
+         data:00:56:46.731 scanner.py                                 88 DEBUG    | Received 75:89:41:49:9F:42: Unknown.
+         data:00:56:46.741 scanner.py                                 88 DEBUG    | Received 77:FF:28:A2:20:8B: Unknown.
+         data:00:56:46.746 scanner.py                                 88 DEBUG    | Received 77:FF:28:A2:20:8B: Unknown.
+         data:00:56:46.751 scanner.py                                 88 DEBUG    | Received 3B:46:8B:9A:CC:0A: Unknown.
+         data:00:56:46.759 scanner.py                                 88 DEBUG    | Received 69:1E:07:D1:50:CB: Unknown.
+         data:00:56:46.762 scanner.py                                 88 DEBUG    | Received 69:1E:07:D1:50:CB: Unknown.
+         data:00:56:46.768 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:46.771 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:46.818 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
+         data:00:56:46.823 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
+         data:00:56:46.829 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:46.831 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:46.976 scanner.py                                 88 DEBUG    | Received 4B:76:BD:08:AE:9B: Unknown.
+         data:00:56:46.989 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: GoPro Cam.
+         data:00:56:46.994 scanner.py                                 88 DEBUG    | Received EA:BB:61:B7:BE:3D: Unknown.
+         data:00:56:47.002 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
+         data:00:56:47.010 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
+         data:00:56:47.018 scanner.py                                 88 DEBUG    | Received 24:52:EE:D4:68:DD: Unknown.
+         data:00:56:47.139 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:47.145 scanner.py                                 88 DEBUG    | Received 88:C6:26:92:A0:AA: Unknown.
+         data:00:56:47.151 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:47.157 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:47.285 scanner.py                                 88 DEBUG    | Received 5D:B0:1C:42:00:0B: Unknown.
+         data:00:56:47.297 scanner.py                                 88 DEBUG    | Received 7E:8A:6F:99:40:69: Unknown.
+         data:00:56:47.305 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: 19073A08553245FAD.
+         data:00:56:47.311 scanner.py                                 88 DEBUG    | Received F8:F0:05:D7:6B:C9: Unknown.
+         data:00:56:47.319 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: Unknown.
+         data:00:56:47.325 scanner.py                                 88 DEBUG    | Received F4:7A:85:67:0E:0A: GoPro 5492.
+         data:00:56:47.372 scanner.py                                 88 DEBUG    | Received 3B:46:8B:9A:CC:0A: Unknown.
+         data:00:56:47.394 scanner.py                                 88 DEBUG    | Received 50:5E:92:7C:6A:45: Unknown.
+         data:00:56:47.398 scanner.py                                 88 DEBUG    | Received 50:5E:92:7C:6A:45: Unknown.
+         data:00:56:47.524 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:47.529 scanner.py                                 88 DEBUG    | Received 5C:24:3D:82:BE:53: Unknown.
+         data:00:56:47.537 scanner.py                                 88 DEBUG    | Received D1:36:E9:A7:93:0E: Unknown.
+         data:00:56:47.543 scanner.py                                 88 DEBUG    | Received 13:B6:73:E0:3E:D1: Unknown.
+         data:00:56:47.551 scanner.py                                 88 DEBUG    | Received 24:52:EE:D4:68:DD: Unknown.
+         data:00:56:47.695 scanner.py                                 88 DEBUG    | Received 4B:76:BD:08:AE:9B: Unknown.
+         data:00:56:47.701 scanner.py                                 88 DEBUG    | Received 4B:76:BD:08:AE:9B: Unknown.
+         data:00:56:47.710 scanner.py                                 88 DEBUG    | Received 5D:B0:1C:42:00:0B: Unknown.
+         data:00:56:47.715 scanner.py                                 88 DEBUG    | Received 5D:B0:1C:42:00:0B: Unknown.
+         data:00:56:47.776 scanner.py                                 88 DEBUG    | Received BC:33:AC:15:F7:27: Unknown.
+         data:00:56:47.781 scanner.py                                 88 DEBUG    | Received BC:33:AC:15:F7:27: xb6_ble.
+         data:00:56:47.850 scanner.py                                156 DEBUG    | 21 devices found. Watcher status: 3.
+   MainThread:00:56:47.851 client.py                                 102 INFO     | Establishing the BLE connection
+         data:00:56:47.862 client.py                                 175 DEBUG    | Connecting to BLE device @ F4:7A:85:67:0E:0A
+      Dummy-1:00:56:51.203 client.py                                 235 DEBUG    | session_status_changed_event_handler: id: <_bleak_winrt_Windows_Devices_Bluetooth.BluetoothDeviceId object at 0x04F5BC80>, error: 0, status: 1
+         data:00:56:51.204 client.py                                 444 DEBUG    | Get Services...
+         data:00:56:56.235 client.py                                 492 INFO     | Services resolved for BleakClientWinRT (F4:7A:85:67:0E:0A)
+         data:00:56:56.355 client.py                                 575 DEBUG    | Read Descriptor 000F : bytearray(b'\x01\x00')
+         data:00:56:56.472 client.py                                 575 DEBUG    | Read Descriptor 002A : bytearray(b'\x00\x00')
+         data:00:56:56.592 client.py                                 575 DEBUG    | Read Descriptor 0032 : bytearray(b'\x00\x00')
+         data:00:56:56.712 client.py                                 575 DEBUG    | Read Descriptor 0037 : bytearray(b'\x00\x00')
+         data:00:56:56.832 client.py                                 575 DEBUG    | Read Descriptor 003C : bytearray(b'\x00\x00')
+         data:00:56:56.951 client.py                                 575 DEBUG    | Read Descriptor 0041 : bytearray(b'\x00\x00')
+         data:00:56:57.073 client.py                                 575 DEBUG    | Read Descriptor 0047 : bytearray(b'\x00\x00')
+         data:00:56:57.193 client.py                                 575 DEBUG    | Read Descriptor 004B : bytearray(b'\x00\x00')
+         data:00:56:57.313 client.py                                 575 DEBUG    | Read Descriptor 0050 : bytearray(b'\x00\x00')
+         data:00:56:57.433 client.py                                 575 DEBUG    | Read Descriptor 0053 : bytearray(b'\x00\x00')
+   MainThread:00:56:58.573 builders.py                                81 INFO     | 
 
 <<<<<<<<--------------
 	register_value_update : StatusId.ENCODING
 <<<<<<<<--------------
 
-   MainThread:10:56:45.442 gopro.py                                  642 DEBUG    | Writing to [Query] UUID: 02:53:0a
-         data:10:56:45.546 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:53:00:0a:01:00
-   MainThread:10:56:45.548 builders.py                                83 INFO     | 
+   MainThread:00:56:58.591 gopro.py                                  642 DEBUG    | Writing to [Query] UUID: 02:53:0a
+         data:00:56:58.692 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:53:00:0a:01:00
+   MainThread:00:56:58.696 builders.py                                83 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -262,15 +196,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   MainThread:10:56:45.583 builders.py                                81 INFO     | 
+   MainThread:00:56:58.729 builders.py                                81 INFO     | 
 
 <<<<<<<<--------------
 	register_value_update : StatusId.SYSTEM_READY
 <<<<<<<<--------------
 
-   MainThread:10:56:45.591 gopro.py                                  642 DEBUG    | Writing to [Query] UUID: 02:53:52
-         data:10:56:45.666 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:53:00:52:01:01
-   MainThread:10:56:45.668 builders.py                                83 INFO     | 
+   MainThread:00:56:58.752 gopro.py                                  642 DEBUG    | Writing to [Query] UUID: 02:53:52
+         data:00:56:58.871 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:53:00:52:01:01
+   MainThread:00:56:58.873 builders.py                                83 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -280,22 +214,22 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:10:56:45.707 builders.py                               538 INFO     | 
+   keep_alive:00:56:58.916 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   MainThread:10:56:45.707 gopro.py                                  501 INFO     | BLE is ready!
-   keep_alive:10:56:45.717 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-   MainThread:10:56:45.721 builders.py                               292 INFO     | 
+   MainThread:00:56:58.916 gopro.py                                  501 INFO     | BLE is ready!
+   keep_alive:00:56:58.945 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+   MainThread:00:56:58.959 builders.py                               292 INFO     | 
 
 <<<<<<<<--------------
 	GET_THIRD_PARTY_API_VERSION
 <<<<<<<<--------------
 
-         data:10:56:45.784 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:10:56:45.785 builders.py                               549 INFO     | 
+         data:00:56:59.051 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:00:56:59.052 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -304,9 +238,9 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   MainThread:10:56:45.786 gopro.py                                  642 DEBUG    | Writing to [Command] UUID: 01:51
-         data:10:56:45.905 gopro.py                                  514 DEBUG    | Received response on BleUUID [Command Response]: 06:51:00:01:02:01:00
-   MainThread:10:56:45.907 builders.py                               298 INFO     | 
+   MainThread:00:56:59.062 gopro.py                                  642 DEBUG    | Writing to [Command] UUID: 01:51
+         data:00:56:59.171 gopro.py                                  514 DEBUG    | Received response on BleUUID [Command Response]: 06:51:00:01:02:01:00
+   MainThread:00:56:59.173 builders.py                               298 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -317,17 +251,17 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   MainThread:10:56:45.950 gopro.py                                  364 INFO     | Using Open GoPro API version 2.0
-   MainThread:10:56:45.954 gopro.py                                  698 INFO     | Discovering Wifi AP info and enabling via BLE
-   MainThread:10:56:45.957 builders.py                               261 INFO     | 
+   MainThread:00:56:59.223 gopro.py                                  364 INFO     | Using Open GoPro API version 2.0
+   MainThread:00:56:59.238 gopro.py                                  698 INFO     | Discovering Wifi AP info and enabling via BLE
+   MainThread:00:56:59.251 builders.py                               261 INFO     | 
 
 <<<<<<<<--------------
 	Wifi AP Password
 <<<<<<<<--------------
 
-         data:10:56:46.087 client.py                                 539 DEBUG    | Read Characteristic 0024 : bytearray(b'Vh6-XCj-FGg')
-   MainThread:10:56:46.087 gopro.py                                  687 DEBUG    | Reading from Wifi AP Password
-   MainThread:10:56:46.088 builders.py                               263 INFO     | 
+         data:00:56:59.353 client.py                                 539 DEBUG    | Read Characteristic 0024 : bytearray(b'Vh6-XCj-FGg')
+   MainThread:00:56:59.354 gopro.py                                  687 DEBUG    | Reading from Wifi AP Password
+   MainThread:00:56:59.354 builders.py                               263 INFO     | 
 
 -------------->>>>>>>>
 Wifi AP Password : {
@@ -337,15 +271,15 @@ Wifi AP Password : {
 }
 -------------->>>>>>>>
 
-   MainThread:10:56:46.112 builders.py                               261 INFO     | 
+   MainThread:00:56:59.397 builders.py                               261 INFO     | 
 
 <<<<<<<<--------------
 	Wifi AP SSID
 <<<<<<<<--------------
 
-         data:10:56:46.207 client.py                                 539 DEBUG    | Read Characteristic 0022 : bytearray(b'jianboblack3')
-   MainThread:10:56:46.208 gopro.py                                  687 DEBUG    | Reading from Wifi AP SSID
-   MainThread:10:56:46.208 builders.py                               263 INFO     | 
+         data:00:56:59.532 client.py                                 539 DEBUG    | Read Characteristic 0022 : bytearray(b'jianboblack3')
+   MainThread:00:56:59.533 gopro.py                                  687 DEBUG    | Reading from Wifi AP SSID
+   MainThread:00:56:59.533 builders.py                               263 INFO     | 
 
 -------------->>>>>>>>
 Wifi AP SSID : {
@@ -355,15 +289,15 @@ Wifi AP SSID : {
 }
 -------------->>>>>>>>
 
-   MainThread:10:56:46.242 builders.py                               328 INFO     | 
+   MainThread:00:56:59.579 builders.py                               328 INFO     | 
 
 <<<<<<<<--------------
 	SET_WIFI: True
 <<<<<<<<--------------
 
-   MainThread:10:56:46.254 gopro.py                                  642 DEBUG    | Writing to [Command] UUID: 03:17:01:01
-         data:10:56:46.326 gopro.py                                  514 DEBUG    | Received response on BleUUID [Command Response]: 02:17:00
-   MainThread:10:56:46.327 builders.py                               339 INFO     | 
+   MainThread:00:56:59.612 gopro.py                                  642 DEBUG    | Writing to [Command] UUID: 03:17:01:01
+         data:00:56:59.711 gopro.py                                  514 DEBUG    | Received response on BleUUID [Command Response]: 02:17:00
+   MainThread:00:56:59.714 builders.py                               339 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -372,14 +306,14 @@ Wifi AP SSID : {
 }
 -------------->>>>>>>>
 
-   MainThread:10:56:46.366 wireless.py                               769 INFO     | Attempting to establish Wifi connection to jianboblack3...
-   MainThread:10:56:46.377 util.py                                   327 DEBUG    | Send cmd --> netsh wlan disconnect
-   MainThread:10:56:46.520 util.py                                   335 DEBUG    | Receive response --> 
+   MainThread:00:56:59.757 wireless.py                               769 INFO     | Attempting to establish Wifi connection to jianboblack3...
+   MainThread:00:56:59.776 util.py                                   327 DEBUG    | Send cmd --> netsh wlan disconnect
+   MainThread:00:57:00.091 util.py                                   335 DEBUG    | Receive response --> 
 
-   MainThread:10:56:46.520 util.py                                   327 DEBUG    | Send cmd --> netsh wlan delete profile name="jianboblack3"
-   MainThread:10:56:46.664 util.py                                   335 DEBUG    | Receive response --> Profile "jianboblack3" is deleted from interface "Wi-Fi 2".
+   MainThread:00:57:00.091 util.py                                   327 DEBUG    | Send cmd --> netsh wlan delete profile name="jianboblack3"
+   MainThread:00:57:00.387 util.py                                   335 DEBUG    | Receive response --> Profile "jianboblack3" is deleted from interface "Wi-Fi 2".
 
-   MainThread:10:56:46.664 wireless.py                               776 DEBUG    | Using template <?xml version="1.0"?>
+   MainThread:00:57:00.387 wireless.py                               776 DEBUG    | Using template <?xml version="1.0"?>
 <WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
     <name>jianboblack3</name>
     <SSIDConfig>
@@ -407,65 +341,12 @@ Wifi AP SSID : {
         <enableRandomization>false</enableRandomization>
     </MacRandomization>
 </WLANProfile>
-   MainThread:10:56:46.666 util.py                                   327 DEBUG    | Send cmd --> netsh wlan add profile filename=C:\Users\andre\AppData\Local\Temp\tmpkji7efa1
-   MainThread:10:56:46.832 util.py                                   335 DEBUG    | Receive response --> Profile jianboblack3 is added on interface Wi-Fi 2.
+   MainThread:00:57:00.392 util.py                                   327 DEBUG    | Send cmd --> netsh wlan add profile filename=C:\Users\andre\AppData\Local\Temp\tmp56u_yttg
+   MainThread:00:57:00.786 util.py                                   335 DEBUG    | Receive response --> Profile jianboblack3 is added on interface Wi-Fi 2.
 
-   MainThread:10:56:46.832 util.py                                   327 DEBUG    | Send cmd --> netsh wlan connect ssid="jianboblack3" name="jianboblack3" interface="Wi-Fi 2"
-   MainThread:10:56:46.983 util.py                                   335 DEBUG    | Receive response --> Connection request was completed successfully.
-
-   MainThread:10:56:46.983 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
-   MainThread:10:56:47.147 util.py                                   335 DEBUG    | Receive response --> 
-There is 1 interface on the system: 
-
-    Name                   : Wi-Fi 2
-    Description            : Killer Wireless-n/a/ac 1435 Wireless Network Adapter #2
-    GUID                   : ad422146-9c01-4d73-bab2-5c12dfa1b7f9
-    Physical address       : 9c:b6:d0:8e:66:ad
-    Interface type         : Primary
-    State                  : associating
-    Radio status           : Hardware On
-                             Software On
-
-    Hosted network status  : Not available
-
-
-   MainThread:10:56:47.148 wireless.py                               793 DEBUG    | Waiting 1 second for Wi-Fi connection to establish...
-   MainThread:10:56:48.151 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
-   MainThread:10:56:48.292 util.py                                   335 DEBUG    | Receive response --> 
-There is 1 interface on the system: 
-
-    Name                   : Wi-Fi 2
-    Description            : Killer Wireless-n/a/ac 1435 Wireless Network Adapter #2
-    GUID                   : ad422146-9c01-4d73-bab2-5c12dfa1b7f9
-    Physical address       : 9c:b6:d0:8e:66:ad
-    Interface type         : Primary
-    State                  : associating
-    Radio status           : Hardware On
-                             Software On
-
-    Hosted network status  : Not available
-
-
-   MainThread:10:56:48.292 wireless.py                               793 DEBUG    | Waiting 1 second for Wi-Fi connection to establish...
-   MainThread:10:56:49.297 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
-   MainThread:10:56:49.441 util.py                                   335 DEBUG    | Receive response --> 
-There is 1 interface on the system: 
-
-    Name                   : Wi-Fi 2
-    Description            : Killer Wireless-n/a/ac 1435 Wireless Network Adapter #2
-    GUID                   : ad422146-9c01-4d73-bab2-5c12dfa1b7f9
-    Physical address       : 9c:b6:d0:8e:66:ad
-    Interface type         : Primary
-    State                  : associating
-    Radio status           : Hardware On
-                             Software On
-
-    Hosted network status  : Not available
-
-
-   MainThread:10:56:49.442 wireless.py                               793 DEBUG    | Waiting 1 second for Wi-Fi connection to establish...
-         data:10:56:49.565 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 08:93:00:0a:01:00:52:01:01
-         data:10:56:49.566 gopro.py                                  571 INFO     | 
+   MainThread:00:57:00.788 util.py                                   327 DEBUG    | Send cmd --> netsh wlan connect ssid="jianboblack3" name="jianboblack3" interface="Wi-Fi 2"
+         data:00:57:00.793 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 08:93:00:0a:01:00:52:01:01
+         data:00:57:00.794 gopro.py                                  571 INFO     | 
 
 ----ASYNC----->>>>>>>>
 {
@@ -476,8 +357,10 @@ There is 1 interface on the system:
 }
 ----ASYNC----->>>>>>>>
 
-   MainThread:10:56:50.457 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
-   MainThread:10:56:50.627 util.py                                   335 DEBUG    | Receive response --> 
+   MainThread:00:57:01.129 util.py                                   335 DEBUG    | Receive response --> Connection request was completed successfully.
+
+   MainThread:00:57:01.129 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
+   MainThread:00:57:04.774 util.py                                   335 DEBUG    | Receive response --> 
 There is 1 interface on the system: 
 
     Name                   : Wi-Fi 2
@@ -485,113 +368,16 @@ There is 1 interface on the system:
     GUID                   : ad422146-9c01-4d73-bab2-5c12dfa1b7f9
     Physical address       : 9c:b6:d0:8e:66:ad
     Interface type         : Primary
-    State                  : disconnected
+    State                  : disconnecting
     Radio status           : Hardware On
                              Software On
 
     Hosted network status  : Not available
 
 
-   MainThread:10:56:50.628 wireless.py                               793 DEBUG    | Waiting 1 second for Wi-Fi connection to establish...
-   MainThread:10:56:51.639 wireless.py                               769 INFO     | Attempting to establish Wifi connection to jianboblack3...
-   MainThread:10:56:51.654 util.py                                   327 DEBUG    | Send cmd --> netsh wlan disconnect
-   MainThread:10:56:51.806 util.py                                   335 DEBUG    | Receive response --> 
-
-   MainThread:10:56:51.806 util.py                                   327 DEBUG    | Send cmd --> netsh wlan delete profile name="jianboblack3"
-   MainThread:10:56:51.946 util.py                                   335 DEBUG    | Receive response --> Profile "jianboblack3" is deleted from interface "Wi-Fi 2".
-
-   MainThread:10:56:51.946 wireless.py                               776 DEBUG    | Using template <?xml version="1.0"?>
-<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
-    <name>jianboblack3</name>
-    <SSIDConfig>
-        <SSID>
-            <name>jianboblack3</name>
-        </SSID>
-    </SSIDConfig>
-    <connectionType>ESS</connectionType>
-    <connectionMode>manual</connectionMode>
-    <MSM>
-        <security>
-            <authEncryption>
-                <authentication>WPA2PSK</authentication>
-                <encryption>AES</encryption>
-                <useOneX>false</useOneX>
-            </authEncryption>
-            <sharedKey>
-                <keyType>passPhrase</keyType>
-                <protected>false</protected>
-                <keyMaterial>Vh6-XCj-FGg</keyMaterial>
-            </sharedKey>
-        </security>
-    </MSM>
-    <MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
-        <enableRandomization>false</enableRandomization>
-    </MacRandomization>
-</WLANProfile>
-   MainThread:10:56:51.947 util.py                                   327 DEBUG    | Send cmd --> netsh wlan add profile filename=C:\Users\andre\AppData\Local\Temp\tmpp743f8vs
-   MainThread:10:56:52.111 util.py                                   335 DEBUG    | Receive response --> Profile jianboblack3 is added on interface Wi-Fi 2.
-
-   MainThread:10:56:52.111 util.py                                   327 DEBUG    | Send cmd --> netsh wlan connect ssid="jianboblack3" name="jianboblack3" interface="Wi-Fi 2"
-   MainThread:10:56:52.263 util.py                                   335 DEBUG    | Receive response --> Connection request was completed successfully.
-
-   MainThread:10:56:52.263 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
-   MainThread:10:56:52.455 util.py                                   335 DEBUG    | Receive response --> 
-There is 1 interface on the system: 
-
-    Name                   : Wi-Fi 2
-    Description            : Killer Wireless-n/a/ac 1435 Wireless Network Adapter #2
-    GUID                   : ad422146-9c01-4d73-bab2-5c12dfa1b7f9
-    Physical address       : 9c:b6:d0:8e:66:ad
-    Interface type         : Primary
-    State                  : authenticating
-    SSID                   : jianboblack3
-    BSSID                  : 26:74:f7:55:bb:56
-    Network type           : Infrastructure
-    Radio type             : 802.11n
-    Authentication         : Unknown
-    Cipher                 : None
-    Connection mode        : Profile
-    Band                   : 2.4 GHz
-    Channel                : 1
-    Receive rate (Mbps)    : 72.2
-    Transmit rate (Mbps)   : 72.2
-    Signal                 : 100% 
-    Profile                : jianboblack3 
-
-    Hosted network status  : Not available
-
-
-   MainThread:10:56:52.455 wireless.py                               793 DEBUG    | Waiting 1 second for Wi-Fi connection to establish...
-   MainThread:10:56:53.457 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
-   MainThread:10:56:53.605 util.py                                   335 DEBUG    | Receive response --> 
-There is 1 interface on the system: 
-
-    Name                   : Wi-Fi 2
-    Description            : Killer Wireless-n/a/ac 1435 Wireless Network Adapter #2
-    GUID                   : ad422146-9c01-4d73-bab2-5c12dfa1b7f9
-    Physical address       : 9c:b6:d0:8e:66:ad
-    Interface type         : Primary
-    State                  : authenticating
-    SSID                   : jianboblack3
-    BSSID                  : 26:74:f7:55:bb:56
-    Network type           : Infrastructure
-    Radio type             : 802.11n
-    Authentication         : Unknown
-    Cipher                 : None
-    Connection mode        : Profile
-    Band                   : 2.4 GHz
-    Channel                : 1
-    Receive rate (Mbps)    : 72.2
-    Transmit rate (Mbps)   : 72.2
-    Signal                 : 100% 
-    Profile                : jianboblack3 
-
-    Hosted network status  : Not available
-
-
-   MainThread:10:56:53.606 wireless.py                               793 DEBUG    | Waiting 1 second for Wi-Fi connection to establish...
-   MainThread:10:56:54.607 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
-   MainThread:10:56:54.747 util.py                                   335 DEBUG    | Receive response --> 
+   MainThread:00:57:04.775 wireless.py                               793 DEBUG    | Waiting 1 second for Wi-Fi connection to establish...
+   MainThread:00:57:05.785 util.py                                   327 DEBUG    | Send cmd --> netsh wlan show interfaces
+   MainThread:00:57:06.748 util.py                                   335 DEBUG    | Receive response --> 
 There is 1 interface on the system: 
 
     Name                   : Wi-Fi 2
@@ -608,7 +394,7 @@ There is 1 interface on the system:
     Cipher                 : CCMP
     Connection mode        : Profile
     Band                   : 2.4 GHz
-    Channel                : 1
+    Channel                : 6
     Receive rate (Mbps)    : 72.2
     Transmit rate (Mbps)   : 72.2
     Signal                 : 100% 
@@ -617,16 +403,16 @@ There is 1 interface on the system:
     Hosted network status  : Not available
 
 
-   MainThread:10:56:54.748 wireless.py                               799 INFO     | Wifi connection established!
-   keep_alive:10:57:45.812 builders.py                               538 INFO     | 
+   MainThread:00:57:06.748 wireless.py                               799 INFO     | Wifi connection established!
+   keep_alive:00:57:59.097 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:10:57:45.813 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:10:57:45.904 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:10:57:45.904 builders.py                               549 INFO     | 
+   keep_alive:00:57:59.097 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:00:57:59.291 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:00:57:59.294 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -635,15 +421,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:10:58:45.916 builders.py                               538 INFO     | 
+   keep_alive:00:58:59.304 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:10:58:45.916 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:10:58:46.085 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:10:58:46.085 builders.py                               549 INFO     | 
+   keep_alive:00:58:59.305 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:00:58:59.412 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:00:58:59.413 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -652,15 +438,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:10:59:46.091 builders.py                               538 INFO     | 
+   keep_alive:00:59:59.418 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:10:59:46.091 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:10:59:46.265 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:10:59:46.266 builders.py                               549 INFO     | 
+   keep_alive:00:59:59.419 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:00:59:59.596 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:00:59:59.597 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -669,15 +455,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:00:46.277 builders.py                               538 INFO     | 
+   keep_alive:01:00:59.599 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:00:46.277 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:00:46.385 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:00:46.386 builders.py                               549 INFO     | 
+   keep_alive:01:00:59.600 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:00:59.771 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:00:59.772 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -686,15 +472,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:01:46.397 builders.py                               538 INFO     | 
+   keep_alive:01:01:59.775 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:01:46.397 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:01:46.564 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:01:46.564 builders.py                               549 INFO     | 
+   keep_alive:01:01:59.775 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:01:59.948 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:01:59.950 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -703,15 +489,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:02:46.576 builders.py                               538 INFO     | 
+   keep_alive:01:02:59.965 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:02:46.577 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:02:46.743 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:02:46.744 builders.py                               549 INFO     | 
+   keep_alive:01:02:59.966 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:03:00.129 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:03:00.131 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -720,15 +506,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:03:46.749 builders.py                               538 INFO     | 
+   keep_alive:01:04:00.133 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:03:46.749 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:03:46.922 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:03:46.923 builders.py                               549 INFO     | 
+   keep_alive:01:04:00.135 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:04:00.309 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:04:00.312 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -737,37 +523,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-         data:11:04:16.360 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:01
-         data:11:04:16.361 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": true
-}
-----ASYNC----->>>>>>>>
-
-   keep_alive:11:04:46.928 builders.py                               538 INFO     | 
+   keep_alive:01:05:00.321 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-         data:11:07:48.103 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:00
-         data:11:07:48.104 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": false
-}
-----ASYNC----->>>>>>>>
-
-   keep_alive:11:07:48.105 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:07:48.245 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:07:48.245 builders.py                               549 INFO     | 
+   keep_alive:01:05:00.321 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:05:00.487 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:05:00.490 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -776,37 +540,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-         data:11:08:42.579 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:01
-         data:11:08:42.580 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": true
-}
-----ASYNC----->>>>>>>>
-
-   keep_alive:11:08:48.247 builders.py                               538 INFO     | 
+   keep_alive:01:06:00.492 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-         data:11:12:35.440 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:00
-         data:11:12:35.441 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": false
-}
-----ASYNC----->>>>>>>>
-
-   keep_alive:11:12:35.442 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:12:35.520 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:12:35.521 builders.py                               549 INFO     | 
+   keep_alive:01:06:00.493 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:06:00.666 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:06:00.668 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -815,15 +557,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:13:35.532 builders.py                               538 INFO     | 
+   keep_alive:01:07:00.672 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:13:35.533 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:13:35.701 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:13:35.704 builders.py                               549 INFO     | 
+   keep_alive:01:07:00.673 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:07:00.846 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:07:00.848 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -832,15 +574,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:14:35.717 builders.py                               538 INFO     | 
+   keep_alive:01:08:00.861 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:14:35.717 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:14:35.880 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:14:35.881 builders.py                               549 INFO     | 
+   keep_alive:01:08:00.862 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:08:01.024 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:08:01.026 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -849,15 +591,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:15:35.894 builders.py                               538 INFO     | 
+   keep_alive:01:09:01.029 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:15:35.895 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:15:36.000 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:15:36.001 builders.py                               549 INFO     | 
+   keep_alive:01:09:01.030 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:09:01.263 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:09:01.265 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -866,15 +608,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:16:36.016 builders.py                               538 INFO     | 
+   keep_alive:01:10:01.277 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:16:36.016 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:16:36.301 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:16:36.304 builders.py                               549 INFO     | 
+   keep_alive:01:10:01.278 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:10:01.561 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:10:01.564 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -883,37 +625,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-         data:11:16:54.097 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:01
-         data:11:16:54.098 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": true
-}
-----ASYNC----->>>>>>>>
-
-         data:11:17:22.955 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:00
-         data:11:17:22.956 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": false
-}
-----ASYNC----->>>>>>>>
-
-   keep_alive:11:17:36.318 builders.py                               538 INFO     | 
+   keep_alive:01:11:01.579 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:17:36.319 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:17:36.480 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:17:36.483 builders.py                               549 INFO     | 
+   keep_alive:01:11:01.580 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:11:01.740 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:11:01.742 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -922,37 +642,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-         data:11:17:50.499 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:01
-         data:11:17:50.500 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": true
-}
-----ASYNC----->>>>>>>>
-
-         data:11:18:06.398 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:00
-         data:11:18:06.401 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": false
-}
-----ASYNC----->>>>>>>>
-
-   keep_alive:11:18:36.488 builders.py                               538 INFO     | 
+   keep_alive:01:12:01.747 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:18:36.489 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:18:36.719 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:18:36.720 builders.py                               549 INFO     | 
+   keep_alive:01:12:01.747 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:12:01.918 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:12:01.921 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -961,15 +659,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:19:36.723 builders.py                               538 INFO     | 
+   keep_alive:01:13:01.927 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:19:36.723 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:19:36.900 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:19:36.902 builders.py                               549 INFO     | 
+   keep_alive:01:13:01.928 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:13:02.037 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:13:02.039 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -978,15 +676,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:20:36.905 builders.py                               538 INFO     | 
+   keep_alive:01:14:02.052 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:20:36.905 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:20:37.081 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:20:37.082 builders.py                               549 INFO     | 
+   keep_alive:01:14:02.052 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:14:02.155 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:14:02.157 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -995,37 +693,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-         data:11:21:16.297 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:01
-         data:11:21:16.298 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": true
-}
-----ASYNC----->>>>>>>>
-
-   keep_alive:11:21:37.091 builders.py                               538 INFO     | 
+   keep_alive:01:15:02.161 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-         data:11:24:40.957 gopro.py                                  514 DEBUG    | Received response on BleUUID [Query Response]: 05:93:00:0a:01:00
-         data:11:24:40.959 gopro.py                                  571 INFO     | 
-
-----ASYNC----->>>>>>>>
-{
-    "status": "SUCCESS",
-    "id": "Query Response::QueryCmdId.STATUS_VAL_PUSH",
-    "StatusId.ENCODING": false
-}
-----ASYNC----->>>>>>>>
-
-   keep_alive:11:24:40.960 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:24:41.039 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:24:41.041 builders.py                               549 INFO     | 
+   keep_alive:01:15:02.161 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:15:02.333 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:15:02.335 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1034,15 +710,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:25:41.056 builders.py                               538 INFO     | 
+   keep_alive:01:16:02.344 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:25:41.056 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:25:41.279 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:25:41.281 builders.py                               549 INFO     | 
+   keep_alive:01:16:02.344 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:16:02.512 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:16:02.514 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1051,15 +727,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:26:41.284 builders.py                               538 INFO     | 
+   keep_alive:01:17:02.529 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:26:41.284 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:26:41.579 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:26:41.581 builders.py                               549 INFO     | 
+   keep_alive:01:17:02.530 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:17:02.690 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:17:02.692 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1068,15 +744,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:27:41.596 builders.py                               538 INFO     | 
+   keep_alive:01:18:02.705 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:27:41.596 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:27:41.756 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:27:41.757 builders.py                               549 INFO     | 
+   keep_alive:01:18:02.706 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:18:02.929 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:18:02.931 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1085,15 +761,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:28:41.768 builders.py                               538 INFO     | 
+   keep_alive:01:19:02.940 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:28:41.768 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:28:41.998 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:28:42.001 builders.py                               549 INFO     | 
+   keep_alive:01:19:02.941 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:19:03.107 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:19:03.108 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1102,15 +778,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:29:42.015 builders.py                               538 INFO     | 
+   keep_alive:01:20:03.118 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:29:42.015 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:29:42.175 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:29:42.176 builders.py                               549 INFO     | 
+   keep_alive:01:20:03.118 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:20:03.286 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:20:03.288 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1119,15 +795,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:30:42.179 builders.py                               538 INFO     | 
+   keep_alive:01:21:03.288 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:30:42.179 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:30:42.357 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:30:42.359 builders.py                               549 INFO     | 
+   keep_alive:01:21:03.288 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:21:03.465 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:21:03.467 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1136,15 +812,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:31:42.373 builders.py                               538 INFO     | 
+   keep_alive:01:22:03.482 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:31:42.374 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:31:42.536 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:31:42.537 builders.py                               549 INFO     | 
+   keep_alive:01:22:03.482 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:22:03.643 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:22:03.646 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1153,15 +829,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:32:42.539 builders.py                               538 INFO     | 
+   keep_alive:01:23:03.657 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:32:42.540 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:32:42.717 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:32:42.717 builders.py                               549 INFO     | 
+   keep_alive:01:23:03.658 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:23:03.881 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:23:03.882 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1170,15 +846,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:33:42.721 builders.py                               538 INFO     | 
+   keep_alive:01:24:03.883 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:33:42.721 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:33:42.959 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:33:42.961 builders.py                               549 INFO     | 
+   keep_alive:01:24:03.883 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:24:04.060 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:24:04.062 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1187,15 +863,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:34:42.975 builders.py                               538 INFO     | 
+   keep_alive:01:25:04.065 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:34:42.975 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:34:43.077 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:34:43.079 builders.py                               549 INFO     | 
+   keep_alive:01:25:04.065 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:25:04.239 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:25:04.240 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1204,15 +880,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:35:43.087 builders.py                               538 INFO     | 
+   keep_alive:01:26:04.248 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:35:43.087 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:35:43.258 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:35:43.259 builders.py                               549 INFO     | 
+   keep_alive:01:26:04.248 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:26:04.417 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:26:04.419 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1221,15 +897,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:36:43.267 builders.py                               538 INFO     | 
+   keep_alive:01:27:04.421 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:36:43.267 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:36:43.438 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:36:43.440 builders.py                               549 INFO     | 
+   keep_alive:01:27:04.421 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:27:04.596 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:27:04.599 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1238,15 +914,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:37:43.448 builders.py                               538 INFO     | 
+   keep_alive:01:28:04.607 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:37:43.448 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:37:43.617 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:37:43.620 builders.py                               549 INFO     | 
+   keep_alive:01:28:04.608 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:28:04.775 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:28:04.777 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1255,15 +931,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:38:43.628 builders.py                               538 INFO     | 
+   keep_alive:01:29:04.779 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:38:43.628 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:38:43.797 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:38:43.799 builders.py                               549 INFO     | 
+   keep_alive:01:29:04.779 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:29:04.954 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:29:04.956 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1272,15 +948,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:39:43.809 builders.py                               538 INFO     | 
+   keep_alive:01:30:04.971 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:39:43.809 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:39:43.975 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:39:43.976 builders.py                               549 INFO     | 
+   keep_alive:01:30:04.971 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:30:05.133 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:30:05.136 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1289,15 +965,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:40:43.984 builders.py                               538 INFO     | 
+   keep_alive:01:31:05.143 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:40:43.984 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:40:44.216 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:40:44.216 builders.py                               549 INFO     | 
+   keep_alive:01:31:05.143 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:31:05.491 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:31:05.493 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1306,15 +982,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:41:44.223 builders.py                               538 INFO     | 
+   keep_alive:01:32:05.506 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:41:44.224 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:41:44.455 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:41:44.455 builders.py                               549 INFO     | 
+   keep_alive:01:32:05.506 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:32:05.670 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:32:05.673 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1323,15 +999,15 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-   keep_alive:11:42:44.464 builders.py                               538 INFO     | 
+   keep_alive:01:33:05.681 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:11:42:44.465 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-         data:11:42:44.634 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
-   keep_alive:11:42:44.635 builders.py                               549 INFO     | 
+   keep_alive:01:33:05.682 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:33:05.788 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:33:05.791 builders.py                               549 INFO     | 
 
 -------------->>>>>>>>
 {
@@ -1340,20 +1016,21 @@ There is 1 interface on the system:
 }
 -------------->>>>>>>>
 
-      Dummy-1:11:42:56.222 client.py                                 235 DEBUG    | session_status_changed_event_handler: id: <_bleak_winrt_Windows_Devices_Bluetooth.BluetoothDeviceId object at 0x061B7750>, error: 0, status: 0
-   keep_alive:13:21:37.567 builders.py                               538 INFO     | 
+   keep_alive:01:34:05.794 builders.py                               538 INFO     | 
 
 <<<<<<<<--------------
 	Set LED: LED.BLE_KEEP_ALIVE
 <<<<<<<<--------------
 
-   keep_alive:13:21:37.568 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
-      Dummy-2:13:21:38.541 client.py                                 235 DEBUG    | session_status_changed_event_handler: id: <_bleak_winrt_Windows_Devices_Bluetooth.BluetoothDeviceId object at 0x061B7610>, error: 0, status: 1
-   keep_alive:13:21:45.958 gopro.py                                  648 ERROR    | Response timeout of 5 seconds!
-   keep_alive:13:21:45.966 builders.py                               538 INFO     | 
+   keep_alive:01:34:05.795 gopro.py                                  642 DEBUG    | Writing to [Settings] UUID: 03:5b:01:42
+         data:01:34:05.967 gopro.py                                  514 DEBUG    | Received response on BleUUID [Settings Response]: 02:5b:00
+   keep_alive:01:34:05.969 builders.py                               549 INFO     | 
 
-<<<<<<<<--------------
-	Set LED: LED.BLE_KEEP_ALIVE
-<<<<<<<<--------------
+-------------->>>>>>>>
+{
+    "status": "SUCCESS",
+    "id": "Settings Response::SettingId.LED"
+}
+-------------->>>>>>>>
 
-      Dummy-3:13:58:04.470 client.py                                 235 DEBUG    | session_status_changed_event_handler: id: <_bleak_winrt_Windows_Devices_Bluetooth.BluetoothDeviceId object at 0x061B7670>, error: 0, status: 0
+      Dummy-2:01:34:29.527 client.py                                 235 DEBUG    | session_status_changed_event_handler: id: <_bleak_winrt_Windows_Devices_Bluetooth.BluetoothDeviceId object at 0x059AAD20>, error: 0, status: 0
