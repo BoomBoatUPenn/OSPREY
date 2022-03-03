@@ -7,8 +7,8 @@
 
 char packetBuffer[255]; 
 
-const char* ssid     = "Room 309";
-const char* password = "Tpi4uaouty";
+const char* ssid     = "BoomBoat";
+const char* password = "BoomBoat";
 
 WiFiUDP UdpCommand;
 WiFiUDP UdpTelem;
@@ -16,14 +16,17 @@ WiFiUDP UdpTelem;
 unsigned int UDPPortCommands = 5005;
 unsigned int UDPPortTelem = 5006;
 
-IPAddress ipTarget(192, 168, 1, 255);
-IPAddress ipLocal(192, 168, 1, 6);
+IPAddress ipTarget(172, 16, 12, 255);
+IPAddress ipLocal(172, 16, 12, 10);
+IPAddress dns(172, 16, 12, 1);
 
-#define ESC_PIN 18
-#define RUDDER_SERVO_PIN 5
+#define ESC_PIN 23
+#define RUDDER_SERVO_PIN 15
 
-const int ESCChannel = 4;
-const int RudderServoChannel = 5;
+const float ServoNeutral = 0.18;
+
+const int ESCChannel = 1;
+const int RudderServoChannel = 2;
 
 const int resolution = 13;
 const int freq = 50;
@@ -31,30 +34,35 @@ const int freq = 50;
 long heartbeat = 0;
 int BoatNum = 0;
 
+float Throttle = 0;
+float RudderAngle = 0;
+
+
 void setup() {                  
   Serial.begin(115200);  
  
-  WiFi.softAP("Boat 1");
-  WiFi.softAPConfig(IPAddress(192, 168, 1, 6),  IPAddress(192, 168, 1, 1), IPAddress(255, 255, 255, 0));
+  WiFi.config(ipLocal,  dns, IPAddress(255, 255, 255, 0));
+  WiFi.begin(ssid, password); 
 
   UdpCommand.begin(UDPPortCommands);
   UdpTelem.begin(UDPPortTelem);
 
+  ledcSetup(ESCChannel, freq, resolution);
+  ledcSetup(RudderServoChannel, freq, resolution);
+
   ledcAttachPin(ESC_PIN, ESCChannel);
   ledcAttachPin(RUDDER_SERVO_PIN, RudderServoChannel);
-/**
+
   while(WiFi.status()!=WL_CONNECTED){
     delay(500);
     Serial.println("no wifi");
   }
- **/ 
 }
 
 void recieve_commands(){
   int packetSize = UdpCommand.parsePacket();
 
   if (packetSize) {
-    Serial.println(packetBuffer);
 
     int len = UdpCommand.read(packetBuffer, 255);
 
@@ -64,21 +72,56 @@ void recieve_commands(){
 
     if (packetBuffer[0] == 'c'){
       char *token;
-      Serial.println(packetBuffer);
-      // discard 'c' character
     }
 
-    if (packetBuffer[0] == 's'){
-      float val = atof(packetBuffer+1);
-      Serial.println(val);
+    if (packetBuffer[0] == 't'){
+      Throttle = atof(packetBuffer+1);
+      update_motors();
     }
 
     if (packetBuffer[0] == 'r'){
-      float val = atof(packetBuffer+1);
+      RudderAngle = atof(packetBuffer+1);
+      update_motors();
+    }
+    if (packetBuffer[0] == 'h'){
+      heartbeat = 1000;
     }
   }
 }
 
+int angleToDC(float angle){
+     return ((angle - 0.0) * (820.0 - 410.0) / (1.0 - 0.0)) + 410.0;
+}
+
+void update_motors(){
+  int t = 0;
+  int r = 0;
+
+  if (heartbeat > 0){
+    t = angleToDC(Throttle);
+    r = angleToDC(RudderAngle);
+    Serial.print("Heartbeat > 0: ")
+    Serial.println(t)
+  } else{
+    t = angleToDC(0.);
+    r = angleToDC(ServoNeutral);
+    Serial.print("else: ")
+    print(t)
+  }
+
+  ledcWrite(ESCChannel, t);
+  ledcWrite(RudderServoChannel, r);
+  
+}
+
 void loop(){
+  static long last = millis();
+  if(millis()>last && heartbeat > 0){
+    last = millis();
+    heartbeat--;
+  } else if (heartbeat == 0){
+    update_motors();
+  }
   recieve_commands();
+
 }

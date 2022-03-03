@@ -79,12 +79,10 @@ class UndistortionModule(object):
         self.DIM = (3840, 2160)
         self.balance = 1
         self.crop = 0.0
-        self.resize_factor = 1.0
+        self.resize_factor = 1./4.
 
     def undistort(self, src):
         dims = src.shape[:2][::-1]
-        dims1 = dims
-        dims2 = dims
         scaled_K = self.K* dims[0] / self.DIM[0]  # The values of K is to scale with image dimension.
         scaled_K[2][2] = 1.0  # Except that K[2][2] is always 1.0
         undistorted_img = cv2.undistort(src, scaled_K, self.D, None)
@@ -129,9 +127,15 @@ def convert_2d_to_relative(point_2d: Tuple[int, int], maze_in_2d: List[List[Tupl
     n = len(maze_in_2d)
     m = len(maze_in_2d[0])
     x_point, y_point = point_2d
-    for row in range(n-1):
-        for col in range(m-1):
-            b_box = (maze_in_2d[row][col], maze_in_2d[row+1][col+1])
-            if x_point >= b_box[0][0] and x_point < b_box[1][0]:
-                if y_point >= b_box[0][1] and y_point < b_box[1][1]:
-                    return (row, col);
+    r = None
+    c = None
+    min_dist = 1e10
+    for row in range(n):
+        for col in range(m):
+            maze_pt = maze_in_2d[row][col]
+            if maze_pt[0] > 0 and maze_pt[1] > 0:
+                l2_dist = ((point_2d[0] - maze_pt[0]) / 10000)**2 + ((point_2d[1] - maze_pt[1]) / 10000)**2
+                if l2_dist < min_dist:
+                    min_dist = l2_dist
+                    r, c = row, col
+    return r, c;
