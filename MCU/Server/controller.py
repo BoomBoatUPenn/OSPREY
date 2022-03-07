@@ -2,7 +2,7 @@ import numpy as np
 from simple_pid import PID
 from math import pi, sin
 
-class boat_pid():
+class BoatPID():
     """
     Boat Rudder Angle PID Controller
     TODO:
@@ -10,7 +10,7 @@ class boat_pid():
         - Design controller to take in current heading angle, compute speed 
     """
     def __init__(self, speed_scale):
-        self.__P = 1.0 # 35.0  # full rudder necessary at roughly 2 meters, full rudder itself is about 70 degrees, assuming servo is centered at 0
+        self.__P = 1.0 # full rudder necessary at roughly 2 meters, full rudder itself is about 70 degrees, assuming servo is centered at 0
         self.__I = 0.0
         self.__D = 0.0
         self.__setpoint = 2.0 # straight-line distance from origin along y-axis (meters)
@@ -21,7 +21,7 @@ class boat_pid():
         self.__mid_speed = 2.0 / 3.0
         self.__low_speed = 1.0 / 3.0
         self.__speed_scale = speed_scale
-        self.speed = 0.0
+        self.__speed = 0.0
 
 
     def set_P(self, new_P):
@@ -45,7 +45,7 @@ class boat_pid():
                 speed = self.__speed_scale*self.__mid_speed
             else: # large steering angle -> scaled low speed
                 speed = self.__speed_scale*self.__low_speed
-            self.speed = speed
+            self.__speed = speed
             return speed
 
     def look_ahead(self, theta):
@@ -79,6 +79,6 @@ class boat_pid():
     #  - Possibly rework according to justin's whiteboard talk
 
 
-# b = boat_pid()
+# b = BoatPID()
 # state = (2, 1 * np.pi / 2) # takes radians -pi/2 to pi/2
 # print(b.command_boat(state))

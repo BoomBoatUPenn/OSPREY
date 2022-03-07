@@ -78,12 +78,12 @@ def main(params):
                 key = cv2.waitKey(1)
             else:
                 if params["undistort"]: # camera lens undistortion
-                    undistorted_im = frame
+                    undistorted_im = deepcopy(frame)
                     undistorted_im = undistorter.undistort(undistorted_im)
                     imgs["undistort"] = undistorted_im
                 
                 if params["april"]: # april tag detection
-                    april_im = frame
+                    april_im = deepcopy(frame)
                     april_im, origins, ground_plane = april.detect_tags(april_im)
                     boat_pose, theta = april.computeState(origins)
                     if params["undistort"]:
@@ -96,7 +96,7 @@ def main(params):
                     if params["undistort"]:
                         edge_im = edgedetection(undistorted_im, params["contour_thresh"])
                     else:
-                        edge_im = frame
+                        edge_im = deepcopy(frame)
                         edge_im = edgedetection(edge_im, params["contour_thresh"])
                     if params["display"]:
                         imgs["edges"] = edge_im
@@ -105,7 +105,7 @@ def main(params):
                     if params["undistort"]:
                         contour_im = contourdetection(undistorted_im, params["contour_thresh"])
                     else:
-                        contour_im = frame
+                        contour_im = deepcopy(frame)
                         contour_im = contourdetection(contour_im, params["contour_thresh"])
                     if params["display"]:
                         imgs["contours"] = contour_im
@@ -114,7 +114,7 @@ def main(params):
                     if params["undistort"]:
                         pingpong_im = colorThreshold(undistorted_im, "orange")
                     else:
-                        pingpong_im = frame
+                        pingpong_im = deepcopy(frame)
                         pingpong_im = colorThreshold(pingpong_im, "orange")
                     if params["display"]:
                         imgs["pingpong_color_threshed"] = pingpong_im
@@ -123,7 +123,7 @@ def main(params):
                     if params["undistort"]:
                         boat_im = colorThreshold(undistorted_im, "white")
                     else:
-                        boat_im = frame
+                        boat_im = deepcopy(frame)
                         boat_im = colorThreshold(boat_im, "white")
                     if params["display"]:
                         imgs["boat_color_threshed"] = boat_im

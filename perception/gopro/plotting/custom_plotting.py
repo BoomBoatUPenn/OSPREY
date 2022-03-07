@@ -33,8 +33,9 @@ def plot_AR(april_im, origins, ground_plane):
                 cv2.arrowedLine(april_im, ground_c, pt, (255, 0, 0))
                 april_im = cv2.putText(april_im, axis + '_w', pt, fontFace=1, fontScale=1.0, color=(255, 0, 0))
     if ground_plane is not None:
-        for pt in ground_plane:
-            cv2.circle(april_im, pt, 3, (0, 0, 255), -1)
+        for row in ground_plane:
+            for pt in row:
+                cv2.circle(april_im, pt, 3, (0, 0, 255), -1)
     return april_im
 
 def displayResults(imgs):

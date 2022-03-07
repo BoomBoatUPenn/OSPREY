@@ -1,5 +1,9 @@
 /venv
 /.vscode
 __pycache__/
+/perception/gopro/test/
 *.ps
 *.pnm
+test/
+*.JPG
+*.MP4

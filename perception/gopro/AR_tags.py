@@ -9,7 +9,10 @@ from utils import *
 
 
 class AR_PlaneDetection(object):
-    def __init__(self, rows=6, cols=6):
+    """
+    Main class for AR World and Boat perception, used for localization and mapping.
+    """
+    def __init__(self, resolution=0.1, rows=15, cols=25):
         row_lim = rows // 2
         col_lim = cols // 2
         self.__camera_params = [1889.22664838299, 1880.09363713027, 1940.53184414707, 1088.10395505467]
@@ -17,7 +20,7 @@ class AR_PlaneDetection(object):
                              [0.0, 1880.09363713027, 1088.10395505467],
                              [0.0, 0.0, 1.0]])
         self.__DIMS = (3840, 2160)
-        self.__resolution = 0.05
+        self.__resolution = resolution
         self.__rows = rows
         self.__cols = cols
         self.__mouse_pos = (0, 0)
@@ -31,7 +34,7 @@ class AR_PlaneDetection(object):
         self.__thread = None
         self.at_detector = Detector(families='tag36h11', 
                                     nthreads=2,
-                                    quad_decimate=1.0, #2.0,
+                                    quad_decimate=2.0,
                                     quad_sigma=0.1,
                                     refine_edges=1,
                                     decode_sharpening=0.1,
@@ -79,7 +82,7 @@ class AR_PlaneDetection(object):
 
     def detect_tags(self, src, set_K=False):
         """
-        Detect all tags and call helper functions for static and moving tags.
+        Detect all tags and call helper functions for static and moving tags
         """
         if set_K:
             dims = src.shape[:2][::-1]
@@ -113,7 +116,7 @@ class AR_PlaneDetection(object):
                     xy_origin = self.find_tag_origin(tag)
                     xy_origin.insert(0, center_pt)
                     tag_data["boat"] = (xy_origin, tag.pose_R, tag.pose_t)
-        gridworld = self.__2d_pts
+        gridworld = self.__reshaped_pts
         return src, tag_data, gridworld;
 
     def find_tag_origin(self, tag, p=None):
@@ -129,7 +132,7 @@ class AR_PlaneDetection(object):
     def computeState(self, tag_data):
         """
         Compute the Heading and Offset of the boat wrt the world coordinate system.
-        Note: this function is done in the world coordinate system using rotation matrices
+        Note: this function is done in the world coordinate system
         """
         theta = None
         boat_pose = None
