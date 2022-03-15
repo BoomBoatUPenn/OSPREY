@@ -2,13 +2,7 @@ from inputs import get_gamepad
 import socket
 import math
 from threading import Thread
-
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtGui import QPainter, QColor, QFont, QPen
-from PyQt5.QtCore import Qt
-import PyQt5
-import sys, time
-import re
+import time
 
 UDP_IP = "172.16.12.10"
 UDP_IP_BROADCAST = "172.16.12.255"

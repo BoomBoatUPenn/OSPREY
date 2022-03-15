@@ -6,7 +6,7 @@ from utils import *
 from AR_tags import *
 
 
-ROOT = "C:\\Schoolwork\\2022 Spring Semester\\Senior Design\\OSPREY_dev\\perception\\gopro\\test\\test_images\\"
+ROOT = ".\perception\\gopro\\test\\test_images\\"
 # LEFT or RIGHT
 left = {}
 right = {}
