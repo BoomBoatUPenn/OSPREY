@@ -2,7 +2,7 @@ import threading
 from itertools import product
 import cv2
 from pupil_apriltags import Detector
-from math import acos, sqrt, atan2
+from math import atan2
 from copy import deepcopy
 
 from utils import *
@@ -34,10 +34,10 @@ class AR_PlaneDetection(object):
         self.__thread = None
         self.at_detector = Detector(families='tag36h11', 
                                     nthreads=2,
-                                    quad_decimate=2.0,
+                                    quad_decimate=1.0,
                                     quad_sigma=0.1,
                                     refine_edges=1,
-                                    decode_sharpening=0.1,
+                                    decode_sharpening=0.25,
                                     debug=0)
 
 
@@ -92,7 +92,7 @@ class AR_PlaneDetection(object):
             self.__K = scaled_K
             self.__camera_params = scaled_params
 
-        tags = self.at_detector.detect(cv2.cvtColor(src, cv2.COLOR_BGR2GRAY), estimate_tag_pose=True, camera_params=self.__camera_params, tag_size=0.13)
+        tags = self.at_detector.detect(cv2.cvtColor(src, cv2.COLOR_BGR2GRAY), estimate_tag_pose=True, camera_params=self.__camera_params, tag_size=0.1462)
         tag_data = {}
         if len(tags) != 0:
             for i, tag in enumerate(tags):
@@ -116,7 +116,9 @@ class AR_PlaneDetection(object):
                     xy_origin = self.find_tag_origin(tag)
                     xy_origin.insert(0, center_pt)
                     tag_data["boat"] = (xy_origin, tag.pose_R, tag.pose_t)
-        gridworld = self.__reshaped_pts
+        gridworld = None
+        if self.__2d_pts is not None:
+            gridworld = self.__reshaped_pts #self.__2d_pts#
         return src, tag_data, gridworld;
 
     def find_tag_origin(self, tag, p=None):
