@@ -1,0 +1,1 @@
+{"task": "testing", "april": true, "edges": false, "contours": false, "contour_thresh": 30, "pingpong_color_threshed": false, "undistort": true, "record": false, "boat_color_threshed": false}
