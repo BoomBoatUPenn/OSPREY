@@ -9,13 +9,17 @@ def write_points_file(output_filename, x_points, y_points, num_decimals=4):
             f.write(f'{round(point[0], num_decimals)},{round(point[1], num_decimals)}\n')
 
 
-def plot_points(x_points, y_points, show_start=True):
+def plot_points(x_points, y_points, title, show_start=True):
     plt.axis('equal')
-    plt.plot(x_points, y_points)
+    plt.xlabel('x direction [m]')
+    plt.ylabel('y direction [m]')
+    plt.title(f'Path for {title}')
+    plt.plot(x_points, y_points, zorder=1)
     if show_start:
-        plt.plot(x_points[0], y_points[0], 'ro')
+        plt.plot(x_points[0], y_points[0], 'ro', zorder=2)
         plt.arrow(x=x_points[0], y=y_points[0], dx=x_points[int(len(x_points) * 0.05)]-x_points[0],
-                  dy=y_points[int(len(y_points) * 0.05)]-y_points[0], facecolor='red', edgecolor='none', width=0.1)
+                  dy=y_points[int(len(y_points) * 0.05)]-y_points[0], facecolor='red', edgecolor='none', width=0.1,
+                  zorder=3)
     plt.show()
 
 
@@ -30,7 +34,7 @@ def straight_line_path(output_filename, line_length, angle=0, num_points=1000, p
     y_points = np.linspace(y_i, y_f, num=num_points)
     write_points_file(output_filename, x_points, y_points)
     if plot:
-        plot_points(x_points, y_points)
+        plot_points(x_points, y_points, output_filename)
 
 
 def sin_wave_path(output_filename, line_length, left_first=False, amplitude=1, stretch_factor=1.0, num_points=1000,
@@ -41,7 +45,7 @@ def sin_wave_path(output_filename, line_length, left_first=False, amplitude=1, s
         x_points = -1 * x_points
     write_points_file(output_filename, x_points, y_points)
     if plot:
-        plot_points(x_points, y_points)
+        plot_points(x_points, y_points, output_filename)
 
 
 def circle_path(output_filename, radius, left_first=True, fraction_of_circle=1.0, x_transform=0, num_points=1000,
@@ -53,10 +57,10 @@ def circle_path(output_filename, radius, left_first=True, fraction_of_circle=1.0
     y_points = (radius * np.sin(theta) - radius) * -1
     write_points_file(output_filename, x_points, y_points)
     if plot:
-        plot_points(x_points, y_points)
+        plot_points(x_points, y_points, output_filename)
 
 
 # straight_line_path("line.txt", 10, angle=20, plot=True)
 # sin_wave_path("sin.txt", 10, left_first=False, amplitude=2, stretch_factor=1/5, plot=True)
-circle_path("circle.txt", 10, fraction_of_circle=0.5, x_transform=0, num_points=100, plot=True, left_first=False)
+circle_path("circle.txt", 10, fraction_of_circle=0.75, x_transform=0, num_points=100, plot=True, left_first=False)
 
