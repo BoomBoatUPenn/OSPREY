@@ -69,12 +69,16 @@ def joystick():
                         x = math.floor(x * radius/r)
                     
                     TargetBoat = Boat1 if not BoatControlNumber else Boat2
+                    SecondBoat = Boat2 if not BoatControlNumber else Boat1
 
                     if y>0:
                         TargetBoat.Throttle = (y/radius) * MAX_THROTTLE
                     else:
                         TargetBoat.Throttle = 0
                     TargetBoat.Rudder = (x/radius)*TargetBoat.RudderArc + TargetBoat.RudderNeutral
+                    SecondBoat.Throttle = 0
+                    SecondBoat.Rudder = SecondBoat.RudderNeutral
+
 
 def server():
     LastTime = [0,0,0]
