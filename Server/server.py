@@ -104,6 +104,12 @@ def main():
     t1.start()
     server()
   
+def launch():
+    t1 = Thread(target = joystick)
+    t2 = Thread(target= server)
+    t1.start()
+    t2.start()
+    
 if __name__=="__main__":
     main()
 
