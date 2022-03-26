@@ -4,9 +4,9 @@ from copy import deepcopy
 
 
 class GridWorld(object):
-    def __init__(self, n, *args, **kwargs):
-
-        # initialize gridworld w/ oil spill in the center of fram
+    def __init__(self, sim, n, *args, **kwargs):
+        self.sim = sim
+        # initialize gridworld w/ oil spill in the center of frame
         self.n = n
         self.grid_world = np.zeros((self.n, self.n))
         self.offset = int(0.25*n)

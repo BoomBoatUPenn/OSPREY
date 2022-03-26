@@ -5,6 +5,14 @@ from math import sqrt, pi, cos, sin
 
 import ocean
 
+"""
+TODO:
+    - Integrate with perception mapping
+    - Add funtion for splining the resulting path (maybe)
+    - Decide whether to integrate multi-boat planning
+    - Integrate more heuristics
+"""
+
 class AStar(object):
     def __init__(self, ocean_map, left, *args, **kwargs):
         self.ocean_map = ocean_map.copy()
@@ -29,7 +37,6 @@ class AStar(object):
             for col in range(self.ocean_map.n):
                 self.g_scores[(row, col)] = 1.0e10
         return;
-
 
     def backtrack(self, start, goal, parents):
         current = goal
@@ -87,7 +94,7 @@ class AStar(object):
                 self.visited.add(neighbor)
         return (None, deepcopy(self.visited));
 
-    def runner(self, tsp=0, mode='manhattan'):
+    def plan(self, tsp=0, mode='manhattan'):
         if tsp:
             waypoints = self.generate_waypoints(tsp)
             path_list, visited_list = self.tsp(self.start, waypoints, mode)
