@@ -21,10 +21,17 @@ class AR_PlaneDetection(object):
     def __init__(self, sim, resolution=0.05, rows=15, cols=25):
         row_lim = rows // 2
         col_lim = cols // 2
+        # GOPRO PARAMS
+        """
         self.__camera_params = [1889.22664838299, 1880.09363713027, 1940.53184414707, 1088.10395505467]
         self.__K = np.array([[1889.22664838299, 0.0, 1940.53184414707], 
                              [0.0, 1880.09363713027, 1088.10395505467],
                              [0.0, 0.0, 1.0]])
+        """
+        self.__camera_params = [3098.163330078125, 3098.163330078125, 1945.3646240234375, 1092.97509765625]
+        self.__K = [[3098.163330078125, 0.0, 1945.3646240234375], 
+                    [0.0, 3098.163330078125, 1092.97509765625], 
+                    [0.0, 0.0, 1.0]]
         self.__DIMS = (3840, 2160)
         self.__resolution = resolution
         self.__rows = rows
@@ -35,7 +42,7 @@ class AR_PlaneDetection(object):
         self.__sim = sim
         if sim:
             self.at_detector = Detector(families='tag36h11', 
-                                        nthreads=2,
+                                        nthreads=4,
                                         quad_decimate=2.0,
                                         quad_sigma=0.1,
                                         refine_edges=1,
@@ -43,7 +50,7 @@ class AR_PlaneDetection(object):
                                         debug=0)
         else:
             self.at_detector = Detector(families='tag36h11', 
-                                        nthreads=2,
+                                        nthreads=4,
                                         quad_decimate=1.5,
                                         quad_sigma=0.0,
                                         refine_edges=1,
@@ -82,7 +89,7 @@ class AR_PlaneDetection(object):
             scaled_K[2][2] = 1.0  # Except that K[2][2] is always 1.0
             self.__K = scaled_K
             self.__camera_params = scaled_params
-        tags = self.at_detector.detect(cv2.cvtColor(src, cv2.COLOR_BGR2GRAY), estimate_tag_pose=True, camera_params=self.__camera_params, tag_size=0.15)
+        tags = self.at_detector.detect(cv2.cvtColor(src, cv2.COLOR_BGR2GRAY), estimate_tag_pose=True, camera_params=self.__camera_params, tag_size=0.13)
         tag_data = {}
         if len(tags) != 0:
             for i, tag in enumerate(tags):

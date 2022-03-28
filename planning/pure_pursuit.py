@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from collections import deque
+from math import cos
 
 # design class/functions for using pure pursuit to follow generated path
 # order path nodes by distance from the current pose of the boat (L2 distance)
@@ -9,7 +10,7 @@ from collections import deque
 ROOT = ".\\planning\\preplanned\\"
 
 class PurePursuit():
-    def __init__(self, r, sim=True, preplanned=None):
+    def __init__(self, r=0.5, sim=True, preplanned=None):
         self.__r = r
         self.__sim = sim
         if preplanned is not None:
@@ -30,6 +31,7 @@ class PurePursuit():
         self.__next = None
         self.__map = None
         self.__world_origin = None
+        self.__speed = 0.5
 
     def find_curr_next(self, boat_pose):
         """
@@ -47,7 +49,19 @@ class PurePursuit():
         next = max(ahead_inds)
         self.__current = current
         self.__next = next
-        return current, next;
+        # return current, next;
+
+    def pursue(self, boat_pose):
+        """
+        Given the current boat pose, define the steering angle and velocity
+        """
+        if self.__next is not None:
+            next_pose = self.__path_nodes[self.__next]
+            theta, pose = boat_pose
+            y = abs((next_pose[1] - pose[1]) / cos(theta))
+            curvature = 2.*y / self.__r
+            return (curvature, self.__speed)
+        return (0, self.__speed)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 /venv
 /.vscode
+/depthai
 __pycache__/
 /perception/gopro/test/
 *.ps

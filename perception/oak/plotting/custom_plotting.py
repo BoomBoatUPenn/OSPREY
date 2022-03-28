@@ -7,9 +7,9 @@ def plot_AR(april_im, origins, ground_plane):
         '2': ('z', (255, 0, 0))}
 
     for key, value in origins.items():
-        for i, pt in enumerate(origins["boat"][0][1:]): # boat coordinate system
+        for i, pt in enumerate(value[0][1:]): # boat coordinate system
             axis, color = AXES[str(i)]
-            boat_c = origins["boat"][0][0]
+            boat_c = value[0][0]
             april_im = cv2.arrowedLine(april_im, boat_c, pt, color)
             april_im = cv2.putText(april_im, axis + '_' + key, pt, fontFace=1, fontScale=1.0, color=color)
     if ground_plane is not None:

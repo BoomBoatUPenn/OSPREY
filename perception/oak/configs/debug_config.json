@@ -1,1 +1,1 @@
-{"task": "debug", "undistort": true, "april": true, "pingpong_color_threshed": true, "display": true, "mapping": {"distance": 2, "density": 0.3}}
+{"task": "debug", "undistort": false, "april": true, "pingpong_color_threshed": true, "display": true, "mapping": {"distance": 2, "density": 0.3}}

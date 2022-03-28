@@ -9,6 +9,7 @@ from threading import Thread
 from perception.oak.utils import *
 from perception.oak.AR_tags import *
 import perception.oak.plotting.custom_plotting as my_plt
+from perception.oak.oak_pipeline import OAKPipeline
 
 
 """
@@ -55,43 +56,45 @@ def im_process(params):
     Main runner for image processing.  See utils for understanding function calls and
     the configs folder for understanding parameters.
     """
-    if params["display"]:
-        imgs = {}
-        for key in params.keys():
-            if params[key] == True and key != "display":
-                imgs[key] = None
-        
-        for i, (window, value) in enumerate(params.items()):
-            if value == True and window != "display":
-                if window == "april":
-                    if params["task"] == "test":
-                        april = AR_PlaneDetection(False)
-                    else:
-                        april = AR_PlaneDetection(True)
-                elif window == "undistort":
-                    undistorter = UndistortionModule()
-                if window != "undistort":
-                    cv2.namedWindow(window)
 
-    if params["task"] == "debug":
-        # video pipeline
-        cap = cv2.VideoCapture(ROOT + "test\\test_videos\\GX010115.MP4", cv2.CAP_FFMPEG)
-    elif params["task"] == "test":
-        # stream pipeline
-        cap = cv2.VideoCapture(1, cv2.CAP_FFMPEG)
+    imgs = {}
+    for key in params.keys():
+        if params[key] == True and key != "display":
+            imgs[key] = None
+    
+    for i, (window, value) in enumerate(params.items()):
+        if value == True and window != "display":
+            if window == "april":
+                if params["task"] == "test":
+                    april = AR_PlaneDetection(False)
+                else:
+                    april = AR_PlaneDetection(True)
+            elif window == "undistort":
+                undistorter = UndistortionModule()
+            if window != "undistort" and params["display"]:
+                cv2.namedWindow(window)
+
+    # oak pipeline
+    cap = OAKPipeline()
+    cap.startDevice()
+    sleep(5)
     
     t = time()
 
     while cap.isOpened():
-        nmat, frame = cap.read()
-        if nmat:
+        frame_dict = cap.read()
+        if "rgb" in frame_dict.keys():
+            rgb_frame = frame_dict["rgb"]
+        if "depth" in frame_dict.keys():
+            depth_frame = frame_dict["depth"]
+        if rgb_frame is not None:
             if params["undistort"]: # camera lens undistortion
-                undistorted_im = deepcopy(frame)
+                undistorted_im = deepcopy(rgb_frame)
                 undistorted_im = undistorter.undistort(undistorted_im)
                 imgs["undistort"] = undistorted_im
             
             if params["april"]: # april tag detection
-                april_im = deepcopy(frame)
+                april_im = deepcopy(rgb_frame)
                 april_im, origins, ground_plane = april.detect_tags(april_im)
                 tag_data = deepcopy(origins)
                 all_states = april.computeAllStates(tag_data)
@@ -105,7 +108,7 @@ def im_process(params):
                 if params["undistort"]:
                     pingpong_im = colorThreshold(undistorted_im, "orange")
                 else:
-                    pingpong_im = deepcopy(frame)
+                    pingpong_im = deepcopy(rgb_frame)
                     pingpong_im = colorThreshold(pingpong_im, "orange")
                 imgs["pingpong_color_threshed"] = pingpong_im
             
@@ -120,7 +123,7 @@ def im_process(params):
                               "origins": origins,
                               "ground": ground_plane}
                 yield yield_dict
-    cap.release()
+    #cap.release()
     cv2.destroyAllWindows()
 
 def launch(task):

@@ -5,7 +5,7 @@ ROOT = ".\\perception\\oak\\"
 # for pottruck testing
 test_config = {
     "task": "test",
-    "undistort": True,
+    "undistort": False,
     "april": True,
     "pingpong_color_threshed": True,
     "display": False,
@@ -16,7 +16,7 @@ test_config = {
 # for debugging
 debug_config = {
     "task": "debug",
-    "undistort": True,
+    "undistort": False,
     "april": True,
     "pingpong_color_threshed": True,
     "display": True,

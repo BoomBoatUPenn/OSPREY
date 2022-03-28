@@ -3,7 +3,7 @@ from copy import deepcopy
 from queue import PriorityQueue
 from math import sqrt, pi, cos, sin
 
-import ocean
+import planning.ocean as ocean
 
 """
 TODO:
