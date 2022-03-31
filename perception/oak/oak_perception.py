@@ -80,6 +80,10 @@ def im_process(params):
     sleep(5)
     
     t = time()
+    yield_dict = {"imgs": None, 
+                "state": None,
+                "origins": None,
+                "ground": None}
 
     while cap.isOpened():
         frame_dict = cap.read()
@@ -88,28 +92,18 @@ def im_process(params):
         if "depth" in frame_dict.keys():
             depth_frame = frame_dict["depth"]
         if rgb_frame is not None:
-            if params["undistort"]: # camera lens undistortion
-                undistorted_im = deepcopy(rgb_frame)
-                undistorted_im = undistorter.undistort(undistorted_im)
-                imgs["undistort"] = undistorted_im
-            
             if params["april"]: # april tag detection
                 april_im = deepcopy(rgb_frame)
-                april_im, origins, ground_plane = april.detect_tags(april_im)
+                _, origins, ground_plane = april.detect_tags(april_im)
                 tag_data = deepcopy(origins)
                 all_states = april.computeAllStates(tag_data)
-                if params["undistort"]:
-                    april_im = deepcopy(undistorted_im)
                 if params["display"]:
                     april_im = my_plt.plot_AR(april_im, tag_data, ground_plane)
                 imgs["april"] = april_im
 
             if params["pingpong_color_threshed"]: # pingpong ball color thresholded
-                if params["undistort"]:
-                    pingpong_im = colorThreshold(undistorted_im, "orange")
-                else:
-                    pingpong_im = deepcopy(rgb_frame)
-                    pingpong_im = colorThreshold(pingpong_im, "orange")
+                pingpong_im = rgb_frame
+                pingpong_im = colorThreshold(pingpong_im, "orange")
                 imgs["pingpong_color_threshed"] = pingpong_im
             
             if params["display"]:
@@ -118,10 +112,11 @@ def im_process(params):
             if key == ord('q'):
                 break;
             else:
-                yield_dict = {"imgs": imgs, 
-                              "state": all_states,
-                              "origins": origins,
-                              "ground": ground_plane}
+                yield_dict["imgs"] = imgs, 
+                yield_dict["state"] = all_states
+                yield_dict["origins"] = origins
+                yield_dict["ground"] = ground_plane
+
                 yield yield_dict
     #cap.release()
     cv2.destroyAllWindows()

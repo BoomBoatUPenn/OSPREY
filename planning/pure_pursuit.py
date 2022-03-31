@@ -10,7 +10,7 @@ from math import cos
 ROOT = ".\\planning\\preplanned\\"
 
 class PurePursuit():
-    def __init__(self, r=0.5, sim=True, preplanned=None):
+    def __init__(self, speed_scale=0.3, r=0.5, sim=True, preplanned=None):
         self.__r = r
         self.__sim = sim
         if preplanned is not None:
@@ -19,24 +19,27 @@ class PurePursuit():
                 self.__path_nodes = np.empty((len(path_nodes), 2))
                 for i, node in enumerate(path_nodes):
                     delim = node.index(',')
-                    self.__path_nodes[i, :] = np.array([float(node[:delim]), float(node[delim+1:])])
+                    self.__path_nodes[i, :] = np.array([float(node[delim+1:]), float(node[:delim])])
         else:
             with open(ROOT + "line.txt", 'r', newline='\n') as f:
                 path_nodes = f.readlines() #, dtype=np.float32)
                 self.__path_nodes = np.empty((len(path_nodes), 2))
                 for i, node in enumerate(path_nodes):
                     delim = node.index(',')
-                    self.__path_nodes[i, :] = np.array([float(node[:delim]), float(node[delim+1:])])
+                    self.__path_nodes[i, :] = np.array([float(node[delim+1:]), float(node[:delim])])
         self.__current = 0
         self.__next = None
-        self.__map = None
-        self.__world_origin = None
-        self.__speed = 0.5
+        self.__speed = 0.0
+        self.__high_speed = 1.0 # speed mapping
+        self.__mid_speed = 2.0 / 3.0
+        self.__low_speed = 1.0 / 3.0
+        self.__speed_scale = speed_scale
 
     def find_curr_next(self, boat_pose):
         """
         Given the current boat pose, find the current node and the furthest, forward node within a search radius
         """
+        boat_pose = np.array(boat_pose)
         # create array of distances between path nodes and the current pose
         dist_arr = np.linalg.norm(boat_pose - self.__path_nodes, axis=1)
         # set the current path node to be the one closest to the current pose
@@ -50,6 +53,21 @@ class PurePursuit():
         self.__current = current
         self.__next = next
         # return current, next;
+    
+    def set_speed(self, alpha):
+        """
+        Take in the current steering angle and compute speed (mapped 0-1) for the boat
+        """
+        alpha_mag = abs(alpha)
+        if alpha_mag >= 0:
+            if alpha_mag < 0.33: # small steering angle -> scaled high speed
+                speed = self.__speed_scale*self.__high_speed
+            elif alpha_mag < 0.66: # middle steering angle -> scaled mid speed
+                speed = self.__speed_scale*self.__mid_speed
+            else: # large steering angle -> scaled low speed
+                speed = self.__speed_scale*self.__low_speed
+            self.__speed = speed
+            return speed
 
     def pursue(self, boat_pose):
         """
@@ -57,11 +75,13 @@ class PurePursuit():
         """
         if self.__next is not None:
             next_pose = self.__path_nodes[self.__next]
-            theta, pose = boat_pose
-            y = abs((next_pose[1] - pose[1]) / cos(theta))
+            pose, theta = boat_pose
+            y = (next_pose[1] - pose[1]) / cos(theta)
             curvature = 2.*y / self.__r
-            return (curvature, self.__speed)
-        return (0, self.__speed)
+            curvature_clamped = min(1.0, max(-1.0, curvature))
+            speed = self.set_speed(curvature_clamped)
+            return (curvature_clamped, self.__speed)
+        return (0.0, 0.5)
 
 
 if __name__ == "__main__":

@@ -8,6 +8,7 @@ class OAKPipeline():
     def __init__(self, stereo=False, april=False):
         self.__pipeline = dai.Pipeline()
         self.__width, self.__height = 1920, 1080
+        self.__resize_factor = 1. / 3.5
         self.__fps = 30
         self.__stereo = stereo
         self.__april = april
@@ -16,7 +17,7 @@ class OAKPipeline():
         # rgb camera
         self.cam_rgb = self.__pipeline.create(dai.node.ColorCamera)
         self.cam_rgb.setFps(self.__fps)
-        self.cam_rgb.setPreviewSize(self.__width, self.__height)
+        self.cam_rgb.setPreviewSize(int(self.__resize_factor * self.__width), int(self.__resize_factor * self.__height))
         self.cam_rgb.setBoardSocket(dai.CameraBoardSocket.RGB)
         self.cam_rgb.setResolution(dai.ColorCameraProperties.SensorResolution.THE_1080_P)
         self.cam_rgb.setInterleaved(False)
@@ -136,7 +137,7 @@ class OAKPipeline():
 
 if __name__ == "__main__":
     stereo = False
-    april = True
+    april = False
     oak_cam = OAKPipeline(stereo, april)
     oak_cam.startDevice()
     cv2.namedWindow("rgb")
