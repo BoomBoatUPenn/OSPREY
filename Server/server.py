@@ -105,9 +105,9 @@ def main():
     server()
   
 def launch():
-    t1 = Thread(target = joystick)
+    #t1 = Thread(target = joystick)
     t2 = Thread(target= server)
-    t1.start()
+    #t1.start()
     t2.start()
     
 if __name__=="__main__":
