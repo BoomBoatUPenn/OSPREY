@@ -11,6 +11,7 @@ class Boat:
     RudderNeutral: float
     RudderArc: float
     Rudder: float
+    RudderInput: float
     Throttle: float
 
 UDP_IP_BOAT1 = "172.16.12.10"
@@ -30,19 +31,20 @@ TelemSocket.setblocking(0)
 x = 0
 y = 0
 
-
+Autonomous = False
 
 MAX_THROTTLE = .25
-Boat1 = Boat(.37, .5, .2, 0)
-Boat2 = Boat(.37, .5, .2, 0)
+Boat1 = Boat(.37, .5, .2, 0, 0)
+Boat2 = Boat(.37, .5, .2, 0, 0)
 
 def joystick():
     global x
     global y
+    global Autonomous
     BTN_SOUTH_STATE = False
     BTN_NORTH_STATE = False
     BoatControlNumber = False
-    Autonomous = False
+    
 
     while 1:
         events = get_gamepad()
@@ -93,10 +95,16 @@ def server():
             CommandSocket.sendto(bytes('h', 'utf-8'), (UDP_IP_BOAT2, UDP_PORT_CMD))
         if (ms> LastTime[1] + 1000/freq[1]):
             LastTime[1] = ms
+            if Autonomous:
+                Boat1.Rudder = Boat1.RudderInput*Boat1.RudderArc + Boat1.RudderNeutral
+                Boat2.Rudder = Boat2.RudderInput*Boat2.RudderArc + Boat2.RudderNeutral
+
             CommandSocket.sendto(bytes('t'+str(round(Boat1.Throttle, 2)), 'utf-8'), (UDP_IP_BOAT1, UDP_PORT_CMD))
             CommandSocket.sendto(bytes('r'+str(round(Boat1.Rudder, 2)), 'utf-8'), (UDP_IP_BOAT1, UDP_PORT_CMD))
             CommandSocket.sendto(bytes('t'+str(round(Boat2.Throttle, 2)), 'utf-8'), (UDP_IP_BOAT2, UDP_PORT_CMD))
             CommandSocket.sendto(bytes('r'+str(round(Boat2.Rudder, 2)), 'utf-8'), (UDP_IP_BOAT2, UDP_PORT_CMD))
+
+        time.sleep(0.001)
 
 
 def main():
