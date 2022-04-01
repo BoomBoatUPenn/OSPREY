@@ -10,7 +10,7 @@ from math import cos
 ROOT = ".\\planning\\preplanned\\"
 
 class PurePursuit():
-    def __init__(self, speed_scale=0.3, r=0.5, sim=True, preplanned=None):
+    def __init__(self, speed_scale=0.1, steering_scale=1.0, r=1.0, sim=True, preplanned=None):
         self.__r = r
         self.__sim = sim
         if preplanned is not None:
@@ -34,6 +34,7 @@ class PurePursuit():
         self.__mid_speed = 2.0 / 3.0
         self.__low_speed = 1.0 / 3.0
         self.__speed_scale = speed_scale
+        self.__steering_scale = steering_scale
 
     def find_curr_next(self, boat_pose):
         """
@@ -78,10 +79,11 @@ class PurePursuit():
             pose, theta = boat_pose
             y = (next_pose[1] - pose[1]) / cos(theta)
             curvature = 2.*y / self.__r
+            curvature *= self.__steering_scale
             curvature_clamped = min(1.0, max(-1.0, curvature))
             speed = self.set_speed(curvature_clamped)
-            return (curvature_clamped, self.__speed)
-        return (0.0, 0.5)
+            return (curvature_clamped, speed)
+        return (0.0, 0.0)
 
 
 if __name__ == "__main__":

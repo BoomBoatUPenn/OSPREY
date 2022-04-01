@@ -9,8 +9,7 @@ import planning.pure_pursuit as local_planning
 
 
 # Launch Server for communications with the boats
-# server.launch()
-print("Server Launched")
+server.launch()
 
 task = "debug"
 down_sample_rate = 5
@@ -19,6 +18,7 @@ param_dict = perception.accept_json(task)
 mapped = None
 boom_local_planner = None
 boat_local_planner = None
+server.Autonomous = True
 
 for i, p_out in enumerate(perception.im_process(param_dict)):
     """
@@ -53,7 +53,8 @@ for i, p_out in enumerate(perception.im_process(param_dict)):
             if boom_pose is not None:
                 boom_local_planner.find_curr_next(boom_pose[0])
                 boom_comms = boom_local_planner.pursue(boom_pose)
-                server.Boat1.Rudder = boom_comms[0]
+                server.Boat1.RudderInput = boom_comms[0]
+                print("new rudder input {}".format(server.Boat1.RudderInput))
                 server.Boat1.Throttle = boom_comms[1]
         if "boat" in all_states.keys() and boat_local_planner is not None:
             boat_pose = all_states["boat"]
@@ -61,7 +62,7 @@ for i, p_out in enumerate(perception.im_process(param_dict)):
             if boat_pose is not None:
                 boat_local_planner.find_curr_next(boat_pose[0])
                 boat_comms = boat_local_planner.pursue(boat_pose)
-                server.Boat2.Rudder = boat_comms[0]
+                server.Boat2.RudderInput = boat_comms[0]
                 server.Boat2.Throttle = boat_comms[1]
 
         print("frame: ", i, ", fps: ", (i + 1)/(time.time() - t))

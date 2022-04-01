@@ -5,6 +5,7 @@ from math import cos, pi
 import json
 import csv
 from threading import Thread
+from copy import deepcopy
 
 from perception.oak.utils import *
 from perception.oak.AR_tags import *
@@ -39,7 +40,7 @@ def accept_json(task):
     elif task == "test":
         with open(ROOT + 'configs\\test_config.json', 'r') as f:
             PARAMS = json.load(f)
-    return PARAMS;
+    return PARAMS
 
 def create_csv():
     """
@@ -49,7 +50,7 @@ def create_csv():
     writer = csv.writer(f)
     header = ['time', 'boom_cx', 'boom_cy', 'boat_cx', 'boat_cy', 'world_cx', 'world_cy', 'boom_theta', 'boat_theta']
     writer.writerow(header)
-    return f, writer;
+    return f, writer
 
 def im_process(params):
     """
@@ -95,10 +96,9 @@ def im_process(params):
             if params["april"]: # april tag detection
                 april_im = deepcopy(rgb_frame)
                 _, origins, ground_plane = april.detect_tags(april_im)
-                tag_data = deepcopy(origins)
-                all_states = april.computeAllStates(tag_data)
+                all_states = april.computeAllStates(origins)
                 if params["display"]:
-                    april_im = my_plt.plot_AR(april_im, tag_data, ground_plane)
+                    april_im = my_plt.plot_AR(april_im, origins, ground_plane)
                 imgs["april"] = april_im
 
             if params["pingpong_color_threshed"]: # pingpong ball color thresholded
@@ -110,7 +110,7 @@ def im_process(params):
                 my_plt.displayResults(imgs)
             key = cv2.waitKey(1)
             if key == ord('q'):
-                break;
+                break
             else:
                 yield_dict["imgs"] = imgs, 
                 yield_dict["state"] = all_states

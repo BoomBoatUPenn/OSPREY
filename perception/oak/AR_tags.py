@@ -3,7 +3,6 @@ from itertools import product
 import cv2
 from pupil_apriltags import Detector
 from math import atan2, acos
-from copy import deepcopy
 
 from perception.oak.utils import *
 
@@ -18,7 +17,7 @@ class AR_PlaneDetection(object):
     """
     Main class for AR World and Boat perception, used for localization and mapping.
     """
-    def __init__(self, sim, resolution=0.1, rows=50, cols=25):
+    def __init__(self, sim, resolution=0.1, rows=5, cols=5):
         row_lim = rows // 2
         col_lim = cols // 2
         # GOPRO PARAMS
@@ -137,6 +136,7 @@ class AR_PlaneDetection(object):
 
     def computeState(self, R_wc, boomboat):
         """
+        DEPRECATED
         Compute the Heading and Offset of boom or boat wrt the world coordinate system.
         Note: this function is done in the world coordinate system
         """
@@ -158,8 +158,7 @@ class AR_PlaneDetection(object):
         theta_J4 = atan2(-1.0*y_ww_rot[0, 0], -1.0*y_ww_rot[1, 0])
         #theta_A = acos(np.dot(y_ww, y_ww_rot.T) / (np.linalg.norm(y_ww) * np.linalg.norm(y_ww_rot)))
         cos_theta = np.dot(y_ww.T, y_ww_rot) / (np.linalg.norm(y_ww) * np.linalg.norm(y_ww_rot))
-        pts = deepcopy(self.__reshaped_pts)
-        b_grid = convert_2d_to_relative(boomboat[0][0], pts)
+        b_grid = convert_2d_to_relative(boomboat[0][0], self.__reshaped_pts)
         w_grid = (int(self.__rows / self.__resolution), int(self.__cols / self.__resolution))
         if b_grid is not None:
             r_b, c_b = b_grid
@@ -175,9 +174,8 @@ class AR_PlaneDetection(object):
     def computeStateV2(self, c_world, c_boomboat):
         theta = None
         pose = None
-        pts = deepcopy(self.__reshaped_pts)
-        c_w_x = (convert_2d_to_relative(c_world[0], pts), convert_2d_to_relative(c_world[1], pts))
-        c_b_x = (convert_2d_to_relative(c_boomboat[0], pts), convert_2d_to_relative(c_boomboat[1], pts))
+        c_w_x = (convert_2d_to_relative(c_world[0], self.__reshaped_pts), convert_2d_to_relative(c_world[1], self.__reshaped_pts))
+        c_b_x = (convert_2d_to_relative(c_boomboat[0], self.__reshaped_pts), convert_2d_to_relative(c_boomboat[1], self.__reshaped_pts))
         c_w_x_vector = np.array([[c_w_x[0][0] - c_w_x[0][0], c_w_x[0][1] - c_w_x[0][1]], 
                                 [c_w_x[1][0] - c_w_x[0][0], c_w_x[1][1] - c_w_x[0][1]]], dtype=np.float64)
         c_b_x_vector = np.array([[c_b_x[0][0] - c_w_x[0][0], c_b_x[0][1] - c_w_x[0][1]], 

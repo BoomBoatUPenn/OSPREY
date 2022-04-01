@@ -20,7 +20,7 @@ class OccMap(object):
     Main class for creating and storing occupancy map.  May be beneficial to store as a graph or as
     a dict with set (for free space locations) and dict (for occupied space locations mapped to certainty or density)
     """
-    def __init__(self, threshes, resolution=0.1, rows=50, cols=25):
+    def __init__(self, threshes, resolution=0.1, rows=5, cols=5):
         self.__pixel_d_thresh = threshes["distance"]
         self.__occ_rho_thresh = threshes["density"]
         self.__resolution = resolution
