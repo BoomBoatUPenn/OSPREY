@@ -42,7 +42,7 @@ class AR_PlaneDetection(object):
         if sim:
             self.at_detector = Detector(families='tag36h11', 
                                         nthreads=4,
-                                        quad_decimate=2.0,
+                                        quad_decimate=3.0,
                                         quad_sigma=0.1,
                                         refine_edges=1,
                                         decode_sharpening=0.25,
@@ -50,7 +50,7 @@ class AR_PlaneDetection(object):
         else:
             self.at_detector = Detector(families='tag36h11', 
                                         nthreads=4,
-                                        quad_decimate=2.0,
+                                        quad_decimate=3.0,
                                         quad_sigma=0.0,
                                         refine_edges=1,
                                         decode_sharpening=0.1,

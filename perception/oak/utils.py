@@ -136,9 +136,10 @@ def convert_3d_to_2d(p, points_3d):
     return points_2d;
 
 
-def convert_2d_to_relative(point_2d, maze_in_2d):
+def convert_2d_to_relative_dep(point_2d, maze_in_2d):
     """
     Convert a 2D image point to projected 2D coordinates using the given map coordinates in 2D image.
+    DEPRECATED FOR NOW
     """
     n = len(maze_in_2d)
     m = len(maze_in_2d[0])
@@ -156,3 +157,12 @@ def convert_2d_to_relative(point_2d, maze_in_2d):
                     min_dist = l2_dist
                     r, c = row, col
     return r, c;
+
+
+def convert_2d_to_relative(point_2d, maze_in_2d):
+    n = len(maze_in_2d)
+    m = len(maze_in_2d[0])
+    np_maze = np.array(maze_in_2d, dtype=np.dtype(float, float))
+    np_pt = np.array(point_2d, dtype=np.dtype(float, float))
+    closest_pt = np.unravel_index(np.sum(np.abs(np_maze - np_pt), axis=-1).argmin(), (n, m))
+    return closest_pt;

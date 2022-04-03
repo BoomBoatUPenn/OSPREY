@@ -15,6 +15,7 @@ task = "debug"
 down_sample_rate = 5
 param_dict = perception.accept_json(task)
 
+
 mapped = None
 boom_local_planner = None
 boat_local_planner = None
